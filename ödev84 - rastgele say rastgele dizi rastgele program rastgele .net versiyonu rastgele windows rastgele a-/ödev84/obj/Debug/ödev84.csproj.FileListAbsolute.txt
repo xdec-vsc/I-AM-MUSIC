@@ -1,0 +1,10 @@
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\bin\Debug\ödev84.exe.config
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\bin\Debug\ödev84.exe
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\bin\Debug\ödev84.pdb
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.csproj.AssemblyReference.cache
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.Form1.resources
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.Properties.Resources.resources
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.csproj.GenerateResource.cache
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.csproj.CoreCompileInputs.cache
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.exe
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev84\ödev84\obj\Debug\ödev84.pdb
