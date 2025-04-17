@@ -1,0 +1,4 @@
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev91\ödev91\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev91\ödev91\obj\Debug\net8.0-windows\App.g.cs
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev91\ödev91\obj\Debug\net8.0-windows\ödev91_MarkupCompile.cache
+D:\Öğrenci Dosyaları\mfu95.bat\winmeme\ödev91\ödev91\obj\Debug\net8.0-windows\ödev91_MarkupCompile.lref
