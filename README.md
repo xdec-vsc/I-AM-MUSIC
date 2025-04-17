@@ -1,2 +1,7 @@
 # winmeme
-school projects from my winmeme folder at school pc
+
+SWAMP IZZO
+
+SWAMP IZZ-
+
+iongivnofuhs
