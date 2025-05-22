@@ -1,0 +1,1 @@
+﻿INSERT INTO Hastalar VALUES(1, 'Ahmet', 'Tarık', 74261223256, 05123452134, '02-10-2001', 'E', 'Pankow', 'P')
