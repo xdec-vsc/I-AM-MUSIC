@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Kullanımı ve Konumlandırma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .aciklama {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .ornek {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #333;
+        }
+        
+        /* Display örnekleri */
+        .block {
+            display: block;
+            background-color: #ffcccc;
+            margin: 5px 0;
+            padding: 10px;
+        }
+        
+        .inline {
+            display: inline;
+            background-color: #ccffcc;
+            padding: 5px;
+        }
+        
+        .inline-block {
+            display: inline-block;
+            background-color: #ccccff;
+            padding: 10px;
+            margin: 5px;
+        }
+        
+        /* Konumlandırma örnekleri */
+        .kutu1 {
+            background-color: #ff6b6b;
+            padding: 20px;
+            margin: 10px;
+        }
+        
+        .kutu2 {
+            background-color: #4ecdc4;
+            padding: 20px;
+            margin: 10px;
+        }
+        
+        .kutu3 {
+            background-color: #ffe66d;
+            padding: 20px;
+            margin: 10px;
+        }
+        
+        .ic-kutu {
+            background-color: #a8e6cf;
+            padding: 15px;
+            margin: 10px;
+        }
+        
+        .baslik {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Div Kullanımı ve Konumlandırma Rehberi</h1>
+    
+    <div class="aciklama">
+        <h2>Div Nedir?</h2>
+        <p><strong>&lt;div&gt;</strong> (division) HTML'de en çok kullanılan yapı taşıdır. Sayfa içeriğini bölümlere ayırmak ve gruplamak için kullanılır. Div'ler kendileri görsel bir şey göstermez, ancak CSS ile şekillendirilebilirler.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>Basit Div Kullanımı</h3>
+        <div style="background-color: #ffd93d; padding: 10px;">
+            Bu basit bir div'dir. Sarı arka plan rengi ve biraz iç boşluk (padding) eklenmiştir.
+        </div>
+        <p><strong>Kod:</strong> &lt;div style="background-color: #ffd93d; padding: 10px;"&gt;İçerik&lt;/div&gt;</p>
+    </div>
+    
+    <div class="aciklama">
+        <h2>Display Özellikleri</h2>
+        <p>Display özelliği, bir elementin sayfada nasıl görüneceğini belirler.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>1. Display: Block (Varsayılan)</h3>
+        <div class="block">Bu bir block div</div>
+        <div class="block">Bu da başka bir block div</div>
+        <p><strong>Açıklama:</strong> Block elementler yeni satırda başlar ve tüm genişliği kaplar. Alt alta dizilirler.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>2. Display: Inline</h3>
+        <div>
+            <div class="inline">İlk inline div</div>
+            <div class="inline">İkinci inline div</div>
+            <div class="inline">Üçüncü inline div</div>
+        </div>
+        <p><strong>Açıklama:</strong> Inline elementler yan yana dizilir ve sadece içerik kadar yer kaplar. Genişlik ve yükseklik ayarlanamaz.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>3. Display: Inline-Block</h3>
+        <div>
+            <div class="inline-block">Inline-block 1</div>
+            <div class="inline-block">Inline-block 2</div>
+            <div class="inline-block">Inline-block 3</div>
+        </div>
+        <p><strong>Açıklama:</strong> Inline-block elementler yan yana dizilir ama genişlik ve yükseklik verilebilir. En esnek seçenektir.</p>
+    </div>
+    
+    <div class="aciklama">
+        <h2>Div'lerle Konumlandırma</h2>
+        <p>Div'ler class ve id kullanarak gruplandırılabilir ve farklı şekillerde konumlandırılabilir.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>İç İçe Div'ler</h3>
+        <div class="kutu1">
+            Dış Div (Kırmızı)
+            <div class="ic-kutu">
+                İç Div (Yeşil)
+                <div style="background-color: #ff85a2; padding: 10px; margin: 10px;">
+                    En İç Div (Pembe)
+                </div>
+            </div>
+        </div>
+        <p><strong>Açıklama:</strong> Div'ler iç içe konularak hiyerarşik yapılar oluşturulabilir. Her div kendi içeriğini ve alt div'lerini kapsar.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>Yan Yana Div'ler</h3>
+        <div>
+            <div class="kutu2" style="display: inline-block; width: 30%;">Sol Kutu</div>
+            <div class="kutu3" style="display: inline-block; width: 30%;">Orta Kutu</div>
+            <div class="kutu1" style="display: inline-block; width: 30%;">Sağ Kutu</div>
+        </div>
+        <p><strong>Açıklama:</strong> display: inline-block ve width kullanarak div'leri yan yana konumlandırabiliriz.</p>
+    </div>
+    
+    <div class="ornek">
+        <h3>Sayfa Düzeni Örneği</h3>
+        <div>
+            <div class="baslik">Başlık Bölümü</div>
+            <div style="display: inline-block; width: 25%; background-color: #dfe6e9; padding: 20px;">
+                Kenar Çubuğu (Sidebar)
+            </div>
+            <div style="display: inline-block; width: 70%; background-color: white; padding: 20px;">
+                Ana İçerik Alanı
+                <p>Burası sayfa içeriğinin gösterildiği bölümdür.</p>
+            </div>
+            <div style="background-color: #2d3436; color: white; padding: 10px;">
+                Alt Bilgi (Footer)
+            </div>
+        </div>
+        <p><strong>Açıklama:</strong> Div'lerle basit bir web sayfası yapısı oluşturulabilir: başlık, kenar çubuğu, içerik ve alt bilgi.</p>
+    </div>
+    
+    <div class="aciklama">
+        <h2>Temel CSS Özellikleri</h2>
+        <ul>
+            <li><strong>display:</strong> Elementin görünüm şeklini belirler (block, inline, inline-block)</li>
+            <li><strong>background-color:</strong> Arka plan rengini ayarlar</li>
+            <li><strong>padding:</strong> İç boşluk (içerikle kenar arası mesafe)</li>
+            <li><strong>margin:</strong> Dış boşluk (element ile diğer elementler arası mesafe)</li>
+            <li><strong>width:</strong> Genişlik</li>
+            <li><strong>border:</strong> Kenarlık</li>
+        </ul>
+    </div>
+    
+    <div class="ornek">
+        <h3>Pratik Örnek: Kart Tasarımı</h3>
+        <div style="display: inline-block; width: 200px; background-color: white; border: 1px solid #ccc; margin: 10px;">
+            <div style="background-color: #3498db; padding: 15px; color: white;">
+                <strong>Kart Başlığı</strong>
+            </div>
+            <div style="padding: 15px;">
+                Bu bir kart örneğidir. Div'lerle kolayca kart tasarımları yapılabilir.
+            </div>
+        </div>
+        <div style="display: inline-block; width: 200px; background-color: white; border: 1px solid #ccc; margin: 10px;">
+            <div style="background-color: #e74c3c; padding: 15px; color: white;">
+                <strong>İkinci Kart</strong>
+            </div>
+            <div style="padding: 15px;">
+                İç içe div'lerle ve farklı renklerle çeşitli tasarımlar oluşturabilirsiniz.
+            </div>
+        </div>
+    </div>
+    
+    <div class="aciklama">
+        <h2>Önemli Noktalar</h2>
+        <ul>
+            <li>Div'ler anlamsal değildir, sadece gruplama için kullanılır</li>
+            <li>Class kullanarak birden fazla div'e aynı stili uygulayabilirsiniz</li>
+            <li>ID kullanarak tek bir div'e özel stil verebilirsiniz</li>
+            <li>Div'leri iç içe kullanırken yapıyı düzenli tutmak önemlidir</li>
+            <li>Modern web geliştirmede Flexbox ve Grid gibi gelişmiş konumlandırma yöntemleri de kullanılır</li>
+        </ul>
+    </div>
+    
+</body>
+</html>
