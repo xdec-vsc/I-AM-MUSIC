@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hover-div {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            transition: background-color 0.5s;
+        }
+
+        .hover-div:hover {
+            background-color: crimson;
+        }
+
+        .responsive-div {
+            width: 100%;
+            max-width: 600px;
+            background: #ddd;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 200px; height: 100px; background-color: lightblue;">
+        Merhaba ben bir
+    </div>
+
+    <div style="width: 300px; margin: 0 auto; border: 2px solid #333; padding: 20px;">
+        Ortalanmış ve kenarlıklı div
+    </div>
+
+    <div
+        style="width: 250px; background: #f9f9f9; border-radius: 15px; box-shadow: 2px 2px 20 px
+        rgba(0,0,0,0.2); padding:15px">
+        Stil verilmiş div
+    </div>
+
+    <div class="hover-div">
+        Üzerine gel
+    </div>
+
+    <div class="responsive-div">
+        tüm cihazlarda uyumlu görünür
+    </div>
+</body>
+</html>
