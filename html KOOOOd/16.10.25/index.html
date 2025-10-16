@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; line-height: 1.8; padding: 20px; background-color: lightblue;">
+    <h1 style="color: #484">HTML Form Elemanları</h1>
+    <!--inputlar si'-->
+    <div>
+        <h2 style="color: #848; border-bottom: 3px solid #919; padding-bottom: 12px;">1. &lt;input&gt; Elemanı</h2>
+        <div>
+            <strong>Tanım: </strong> Form tarafından en çok kullanılan eleman, metin, şifre, sayı, tarih ve daha bir giriş verisi için kullanılır.
+            <br><strong>Söz Dizimi: </strong>&lt;input type="tür" name="ad" placeholder="ipucu"&gt;
+        </div>
+
+        <h3>Text Input ( Metin Girişi )</h3>
+        <div>
+            <label for="ad">Adınız: </label>
+            <input type="text" name="ad" id="ad" placeholder="Lütfen Tam Adınızı Giriniz">
+        </div>
+
+        <h3>Email Input ( Mail Girişi )</h3>
+        <div>
+            <label for="email">Mail: </label>
+            <input type="email" name="email" id="email" placeholder="123@abc.xyz">
+        </div>
+
+        <h3>Password Input ( Şifre Girişi )</h3>
+        <div>
+            <label for="password">Şifre: </label>
+            <input type="password" name="password" id="password" placeholder="Şifrenizi Giriniz">
+        </div>
+
+        <h3>Number Input ( Sayı Girişi )</h3>
+        <div>
+            <label for="number">Yaş: </label>
+            <input type="number" name="number" id="number" placeholder="Yaş Giriniz">
+        </div>
+        
+        <h3>Date Input ( Tarih Girişi )</h3>
+        <div>
+            <label for="date">Doğum Tarihi: </label>
+            <input type="date" name="date" id="date" placeholder="Doğum Tarihinizi Giriniz">
+        </div>
+
+        <h3>Checkbox ( Çoklu Seçim )</h3>
+        <div>
+            <input type="checkbox" name="pet1" id="pet1" value="kedi">
+            <label for="pet1">Kedim var</label> <br>
+            <input type="checkbox" name="pet2" id="pet2" value="köpek">
+            <label for="pet2">Köpeğim var</label> <br>
+            <input type="checkbox" name="pet3" id="pet3" value="başka">
+            <label for="pet3">Başka bir evcil hayvanım var</label> <br>
+        </div>
+
+        <h3>Radio Button ( Tek Seçim )</h3>
+        <div>
+            <input type="radio" name="oyun" id="mutlu" value="mutlu">
+            <label for="mutlu">Mutluyum</label> <br>
+            <input type="radio" name="oyun" id="lol" value="leauge">
+            <label for="lol">LoL oynuyorum</label> <br>
+            <input type="radio" name="oyun" id="job" value="job">
+            <label for="job">İşim var </label> <br>
+        </div>
+
+        <fieldset>
+            <legend>Dosya İnput</legend>
+            <label for="all.i">Her Tür Dosya</label>
+            <input type="file" name="all.i" id="all.i"> <br>
+            
+            <label for="img.i">Fotoğraf Dosya</label>
+            <input type="file" name="img.i" id="img.i" accept="image/*"> <br>
+
+            <label for="pdf.i">PDF Dosya</label>
+            <input type="file" name="pdf.i" id="pdf.i" accept=".pdf"> <br>
+
+            <label for="img.i2">Fotoğraf Dosya(.JPG/.JPEG/.PNG)</label>
+            <input type="file" name="img.i2" id="img.i2" accept=".jpg,.jpeg,.png"> <br>
+
+            <label for="txt.i">Yazı Dosya</label>
+            <input type="file" name="txt.i" id="txt.i" accept=".txt"> <br>
+
+            <label for="log.i">Log Dosya</label>
+            <input type="file" name="log.i" id="log.i" accept=".log"> <br>
+
+            <label for="mcwf.i">Özel Dosya</label>
+            <input type="file" name="mcwf.i" id="mcwf.i" accept=".mcwf"> <br>
+        </fieldset>
+
+        <input type="color">
+    </div>
+    <!--Textarea-->
+    <div>
+        <h2 style="color: #848; border-bottom: 3px solid #919; padding-bottom: 12px;">2. &lt;textarea&gt; Elemanı</h2>
+        <div>
+            <strong>Tanım: </strong> Çok satırlı metin girişi için kullanılır. Yorum, adres, mesaj, açıklama gibi uzun
+            metinler için idealdir.
+            <br><strong>Söz Dizimi: </strong>&lt;textarea name="ad" rows="satır" cols="sütun"&gt;&lt;/textarea&gt;
+        </div>
+
+        <h3>TextArea ( Adres Girişi )</h3>
+        <div>
+            <label for="adres">Adres: </label> <br>
+            <textarea name="adres" id="adres" rows="5" cols="50" placeholder="Adresinizi Giriniz" style="resize: none;"></textarea>
+        </div>
+    </div>
+
+    <!--Select-->
+    <div>
+        <h2 style="color: #848; border-bottom: 3px solid #919; padding-bottom: 12px;">3. &lt;select&gt; Elemanı</h2>
+        <div>
+            <strong>Tanım: </strong> Açılır liste oluşturur. Kullanıcının önceden tanımlı seçenekler arasından bir
+            seçim yapmasını sağlar
+            <br><strong>Söz Dizimi: </strong>&lt;select name="ad" &gt;
+            &lt;option value="tr"&gt;Türkiye&lt;/option&gt;
+            &lt;/select&gt;
+        </div>
+
+        <h3>select ( İller Seçimi Girişi )</h3>
+        <div>
+            <label for="il">İl: </label>
+            <select name="il" id="il">
+                <option value="">İl Seçimi Yapınız</option>
+                <option value="tr">Türkiye</option>
+                <option value="de">Almanya</option>
+                <option value="fr">Fransa</option>
+                <option value="it">İtalya</option>
+                <option value="ktc">Kıbrıs Türk Cumhuriyeti</option>
+            </select>
+        </div>
+    </div>
+
+    <!--button-->
+    <div>
+        <h2 style="color: #848; border-bottom: 3px solid #919; padding-bottom: 12px;">4. &lt;button&gt; Elemanı</h2>
+        <div>
+            <strong>Tanım: </strong> Tıklanabilir bi eleman oluşturmayı sağlar. Form göndermek, sayfayı yenilemek ve JS kod çalıştırmak için kullanılır.
+            <br><strong>Söz Dizimi: </strong>&lt;button type="tğr"&gt;Düğme Metin&lt;/button&gt;
+        </div>
+
+        <div>
+            <button type="submit" style="padding: 8px; margin: 5 px 0; border: none; background-color: #555; color: #070; width: 128px; height: 64px;">Gönder</button>
+            <button type="reset" style="padding: 8px; margin: 5 px 0; border: none; background-color: #555; color: #070; width: 128px; height: 64px;">Temizle</button>
+            <button type="button" style="padding: 8px; margin: 5 px 0; border: none; background-color: #555; color: #070; width: 128px; height: 64px;">Tıkla</button>
+        </div>
+    </div>
+
+    <!--form-->
+</body>
+</html>
