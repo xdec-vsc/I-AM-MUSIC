@@ -1,1 +1,1 @@
-html/css/js/ne varsa artık
+html/css/js/reeact/nodejs/wix/w3schools/ne varsa artık
