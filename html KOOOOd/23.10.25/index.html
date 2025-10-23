@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.header2 {
+            background-color: #2D3E52;
+            color: white;
+            padding: 30px;
+        }
+
+        .header41 {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #2D3E52;
+            color: white;
+        }
+
+        .header41 div {
+            background-color: #2D3E52;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        a:link {
+            color: white;
+            background-color: transparent;
+        }
+
+        a:visited {
+            color: lightgray;
+            background-color: transparent;
+        }
+
+        a:hover {
+            color: gray;
+            background-color: transparent;
+        }
+
+        a:active {
+            color: black;
+            background-color: transparent;
+        }
+
+        .başlık {
+            padding: 40px;
+        }
+
+        .başlıkaltı {
+            padding-left: 20px;
+        }
+
+        mark {
+            background-color: orange;
+            color: white;
+            padding: 7px;
+        }
+
+        aside {
+            border: 2px solid;
+            border-color: lime;
+            padding: 10px;
+        }
+
+        .flexxer {
+            display: flex;
+            border: 3px solid;
+            border-color: black;
+        }
+
+        .flexxer div {
+            margin: 20px;
+            ;
+            padding: 25px;
+            background-color: aquamarine;
+            text-align: center;
+        }
+
+        input {
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header2">
+        <header>
+            <h1>HTML Öğretici Sayfa</h1>
+            <h3>Temel HMTL etiketleri ve CSS kullanımı örnekleri</h3>
+        </header>
+    </div>
+    <br>
+    <div class="header41">
+        <div><a href="#temelbit">Biçimlendirme</a></div>
+        <div><a href="#etiketler">Anlamsal Etiketler</a></div>
+        <div><a href="#tablo">Tablolar</a></div>
+        <div><a href="#flexbox">Flexbox</a></div>
+        <div><a href="#form">Formlar</a></div>
+    </div>
+    <br>
+    <div class="başlık">
+        <h2 id="temelbit">Temel Biçimlendirme Etiketleri</h1>
+            <br>
+            <div class="başlıkaltı">
+                <h3>Başlıklar ve Paragraflar</h3>
+                <h4>Bu bir H4 başlığıdır</h4>
+                <h5>Bu bir H5 başlığıdır</h5>
+                <h6>Bu bir H6 başlığıdır</h6>
+                <p>Bu normal bir <b>paragraf</b> örneğidir. İçinde vurgulu ve <mark>öne çıkan</mark> metinler bulunur.
+                </p>
+                <p>İkinci paragrafta <b>kalın yazı</b>, <i>italik yazı</i> ve <u>altı çizili yazı</u> örnekleri var.</p>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="başlıkaltı">
+                <h3>Listeler</h3>
+                <h3>Sıralı Liste</h3>
+                <ol>
+                    <li>Birinci öğe</li>
+                    <li>İkinci öğe</li>
+                    <li>Üçüncü öğe</li>
+                </ol>
+                <h3>Sırasız Liste:</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+    </div>
+
+    <div class="başlık">
+        <h2 id="etiketler">Anlamsal HTML Etiketleri</h2>
+        <div class="başlıkaltı">
+            <article>
+                <h3>Article Örneği</h3>
+                Article etiketi, bağımsız, kendi içinde tamamlanmamış içerikler için kullanılır.
+            </article>
+            <br>
+            <aside>
+                <h3>Aside (Yan Bilgi)</h3>
+                Aside etiketi, ana içerikle ilişkili ancak yan bilgi niteliğindeki içerikler için kullanılır.
+            </aside>
+        </div>
+    </div>
+
+    <div class="başlık">
+        <h2 id="tablo">Tablo Kullanımı</h2>
+        <table border="1">
+            <tr>
+                <th style="background-color: lightblue;">Öğrenci Adı</th>
+                <th style="background-color: lightblue;">Ders</th>
+                <th style="background-color: lightblue;">Not</th>
+            </tr>
+            <td>Ahmet Yılmaz <br>Ayse Kaşa <br> Mehmet Demir</td>
+            <td>Matematik <br>Fizik <br>Kimya</td>
+            <td>85 <br>92 <br>78</td>
+        </table>
+    </div>
+
+    <div class="başlık">
+        <h2 id="flexbox">Flexbox Kullanımı</h2>
+        Flexbox ile yatay düzende esnek kutular oluşturabilirsiniz:
+        <br>
+        <div class="flexxer">
+            <div>Kutu1</div>
+            <div>Kutu2</div>
+            <div>Kutu3</div>
+        </div>
+    </div>
+    <div class="başlık">
+        <h2 id="form">Form ve Doğrulama</h2>
+        <form action="D:/Öğrenci Dosyaları/placebypbc/23.10.25/banane.html">
+            <fieldset>
+                <br>
+                <label for="name">Ad Soyad: *</label><br>
+                <input type="text" name="name" id="name" required><br>
+                <br>
+                <label for="email">E-posta: *</label><br>
+                <input type="email" name="email" id="email" required><br>
+                <br>
+                <label for="phone">Telefon:</label><br>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+                <br>
+                <label for="age">Yaş (18-65):</label><br>
+                <input type="number" name="age" id="age"><br>
+                <br>
+                <label for="bd">Yaş (18-65):</label><br>
+                <input type="date" name="bd" id="bd"><br>
+                <br>
+                <label for="city">Şehir: *</label><br>
+                <select name="city" id="city" required>
+                    <option value="default">-</option>
+                    <option value="ad">Adalar</option>
+                    <option value="ar">Arnavutköy</option>
+                    <option value="at">Ataşehir</option>
+                    <option value="kü">Küçükçekmece</option>
+                    <option value="av">Avcılar</option>
+                    <option value="ba">Bağcılar</option>
+                    <option value="bh">Bahçelievler</option>
+                    <option value="bk">Bakırköy</option>
+                    <option value="bs">Başakşehir</option>
+                    <option value="by">Bayrampaşa</option>
+                    <option value="bsk">Beşiktaş</option>
+                    <option value="byk">Beykoz</option>
+                    <option value="byd">Beylikdüzü</option>
+                    <option value="byo">Beyoğlu</option>
+                    <option value="bc">Büyükçekmece</option>
+                    <option value="ca">Çatalca</option>
+                    <option value="ce">Çekmeköy</option>
+                    <option value="es">Esenler</option>
+                    <option value="esn">Esenyurt</option>
+                    <option value="ey">Eyüpsultan</option>
+                    <option value="fa">Fatih</option>
+                    <option value="gop">Gaziosmanpaşa</option>
+                    <option value="gu">Güngören</option>
+                    <option value="ka">Kadıköy</option>
+                    <option value="kt">Kağıthane</option>
+                    <option value="kr">Kartal</option>
+                    <option value="mt">Maltepe</option>
+                    <option value="pn">Pendik</option>
+                    <option value="sn">Sancaktepe</option>
+                    <option value="sa">Sarıyer</option>
+                    <option value="sl">Şile</option>
+                    <option value="si">Silivri</option>
+                    <option value="sis">Şişli</option>
+                    <option value="su">Sultanbeyli</option>
+                    <option value="sul">Sultangazi</option>
+                    <option value="tuz">Tuzla</option>
+                    <option value="um">Ümraniye</option>
+                    <option value="us">Üsküdar</option>
+                    <option value="zy">Zeytinburnu</option>
+                </select>
+                <br>
+                <label for="message">Mesajınız:</label><br>
+                <textarea name="message" id="message" rows="5" cols="20"></textarea><br>
+                <br>
+                <input type="submit" value="Gönder" style="background-color: green; color: white;">
+            </fieldset>
+            <h5>* ile işaretli alanlar zorunludur</h5>
+        </form>
+    </div>
+
+    <div class="header2">
+        © 2025 HTML Öğretici Sayfa - Tüm hakları saklıdır <br>
+        <br>
+        İletişim: ornek@email.com
+    </div>
+</body>
+
+</html>
