@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Temel Etiketler - 10 Örnek Uygulama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        .example {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .example.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .example h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .example-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .task-list {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .task-list h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .task-list ul {
+            padding-left: 20px;
+        }
+        
+        .task-list li {
+            margin: 8px 0;
+            color: #1b5e20;
+        }
+        
+        .demo-area {
+            background: white;
+            border: 2px dashed #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 100px;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-buttons {
+                justify-content: center;
+            }
+            
+            .nav-btn {
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 HTML Temel Etiketler</h1>
+            <p>10 Interaktif Örnek Uygulama ile Öğren</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showExample(1)">1. HTML5 Temel Yapı</button>
+            <button class="nav-btn" onclick="showExample(2)">2. Anlamsal Etiketler</button>
+            <button class="nav-btn" onclick="showExample(3)">3. Başlık Etiketleri</button>
+            <button class="nav-btn" onclick="showExample(4)">4. Paragraf Etiketi</button>
+            <button class="nav-btn" onclick="showExample(5)">5. Vurgulama Etiketleri</button>
+            <button class="nav-btn" onclick="showExample(6)">6. Metin Biçimlendirme</button>
+            <button class="nav-btn" onclick="showExample(7)">7. Özel Metin Etiketleri</button>
+            <button class="nav-btn" onclick="showExample(8)">8. Alt/Üst Simge</button>
+            <button class="nav-btn" onclick="showExample(9)">9. Sıralı Listeler</button>
+            <button class="nav-btn" onclick="showExample(10)">10. Sırasız Listeler</button>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+        </div>
+        
+        <!-- Örnek 1: HTML5 Temel Yapı -->
+        <div class="example active" id="example1">
+            <h2>🏗️ Örnek 1: HTML5 Temel Yapı ve Belge Yapısı</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> HTML5 belgesinin temel yapısını ve zorunlu etiketleri öğrenmek.
+            </div>
+            
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Benim İlk Sayfam&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Merhaba Dünya!&lt;/h1&gt;
+    &lt;p&gt;Bu benim ilk HTML sayfam.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <div class="example-content">
+                <h1>Merhaba Dünya!</h1>
+                <p>Bu benim ilk HTML sayfam.</p>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Yukarıdaki kodu bir metin editörüne kopyalayın</li>
+                    <li>Dosyayı "index.html" olarak kaydedin</li>
+                    <li>Tarayıcıda açarak sonucu görün</li>
+                    <li>Title'ı değiştirip sayfa sekmesindeki değişimi gözlemleyin</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 2: Anlamsal Etiketler -->
+        <div class="example" id="example2">
+            <h2>🧭 Örnek 2: HTML5 Anlamsal Etiketler</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Anlamsal etiketlerle sayfa yapısını organize etmek.
+            </div>
+            
+            <div class="code-block">
+&lt;header&gt;
+    &lt;h1&gt;Benim Blog'um&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Ana Sayfa&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Hakkımda&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;İletişim&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Günün Yazısı&lt;/h2&gt;
+        &lt;p&gt;Bu günün özel yazısı...&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;aside&gt;
+        &lt;h3&gt;Yan Panel&lt;/h3&gt;
+        &lt;p&gt;Ek bilgiler burada...&lt;/p&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;© 2024 Benim Blog'um&lt;/p&gt;
+&lt;/footer&gt;
+            </div>
+            
+            <div class="example-content" style="border: 1px solid #ddd;">
+                <header style="background: #f0f0f0; padding: 15px; border-bottom: 1px solid #ddd;">
+                    <h1 style="margin: 0;">Benim Blog'um</h1>
+                    <nav>
+                        <ul style="list-style: none; display: flex; gap: 20px; margin: 10px 0 0 0;">
+                            <li><a href="#" style="text-decoration: none; color: #007bff;">Ana Sayfa</a></li>
+                            <li><a href="#" style="text-decoration: none; color: #007bff;">Hakkımda</a></li>
+                            <li><a href="#" style="text-decoration: none; color: #007bff;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                
+                <main style="display: flex; padding: 20px; gap: 20px;">
+                    <article style="flex: 2;">
+                        <h2>Günün Yazısı</h2>
+                        <p>Bu günün özel yazısı...</p>
+                    </article>
+                    
+                    <aside style="flex: 1; background: #f9f9f9; padding: 15px;">
+                        <h3>Yan Panel</h3>
+                        <p>Ek bilgiler burada...</p>
+                    </aside>
+                </main>
+                
+                <footer style="background: #333; color: white; padding: 15px; text-align: center;">
+                    <p style="margin: 0;">© 2024 Benim Blog'um</p>
+                </footer>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Bu yapıyı kullanarak kendi blog sayfanızı oluşturun</li>
+                    <li>Nav menüsüne yeni linkler ekleyin</li>
+                    <li>Article içine daha fazla içerik ekleyin</li>
+                    <li>Aside bölümüne sosyal medya linkleri ekleyin</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 3: Başlık Etiketleri -->
+        <div class="example" id="example3">
+            <h2>🎯 Örnek 3: H1-H6 Başlık Etiketleri</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Başlık hiyerarşisini doğru şekilde kullanmak.
+            </div>
+            
+            <div class="code-block">
+&lt;h1&gt;Ana Başlık (H1) - Sayfada sadece bir tane&lt;/h1&gt;
+&lt;h2&gt;Bölüm Başlığı (H2)&lt;/h2&gt;
+&lt;h3&gt;Alt Bölüm (H3)&lt;/h3&gt;
+&lt;h4&gt;Alt Alt Bölüm (H4)&lt;/h4&gt;
+&lt;h5&gt;Küçük Başlık (H5)&lt;/h5&gt;
+&lt;h6&gt;En Küçük Başlık (H6)&lt;/h6&gt;
+            </div>
+            
+            <div class="example-content">
+                <h1 style="color: #e74c3c;">Ana Başlık (H1) - Sayfada sadece bir tane</h1>
+                <h2 style="color: #3498db;">Bölüm Başlığı (H2)</h2>
+                <h3 style="color: #2ecc71;">Alt Bölüm (H3)</h3>
+                <h4 style="color: #f39c12;">Alt Alt Bölüm (H4)</h4>
+                <h5 style="color: #9b59b6;">Küçük Başlık (H5)</h5>
+                <h6 style="color: #34495e;">En Küçük Başlık (H6)</h6>
+            </div>
+            
+            <div class="highlight">
+                <strong>Doğru Kullanım Örneği:</strong>
+            </div>
+            
+            <div class="code-block">
+&lt;h1&gt;HTML Öğreniyorum&lt;/h1&gt;
+    &lt;h2&gt;1. HTML Nedir?&lt;/h2&gt;
+        &lt;h3&gt;1.1. HTML'in Tarihçesi&lt;/h3&gt;
+        &lt;h3&gt;1.2. HTML'in Önemi&lt;/h3&gt;
+    &lt;h2&gt;2. HTML Etiketleri&lt;/h2&gt;
+        &lt;h3&gt;2.1. Temel Etiketler&lt;/h3&gt;
+            &lt;h4&gt;2.1.1. Paragraf Etiketi&lt;/h4&gt;
+            &lt;h4&gt;2.1.2. Başlık Etiketleri&lt;/h4&gt;
+        &lt;h3&gt;2.2. İleri Düzey Etiketler&lt;/h3&gt;
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Kendi ilgi alanınız hakkında başlık hiyerarşisi oluşturun</li>
+                    <li>H1 etiketini sadece bir kez kullanın</li>
+                    <li>Başlıkları mantıklı bir sırayla düzenleyin (H1→H2→H3...)</li>
+                    <li>Her başlık seviyesini test edin</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 4: Paragraf Etiketi -->
+        <div class="example" id="example4">
+            <h2>📄 Örnek 4: P (Paragraf) Etiketi</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Paragraf etiketinin doğru kullanımını öğrenmek.
+            </div>
+            
+            <div class="code-block">
+&lt;p&gt;Bu ilk paragrafımdır. Paragraflar metni organize etmek için kullanılır.&lt;/p&gt;
+
+&lt;p&gt;Bu ikinci paragraf. Her paragraf arasında otomatik olarak boşluk bırakılır.&lt;/p&gt;
+
+&lt;p&gt;
+    Bu çok satırlı bir paragraf.
+    HTML'de satır sonları otomatik olarak
+    tek boşluk karakteri olarak algılanır.
+&lt;/p&gt;
+
+&lt;p&gt;Bu paragrafta &lt;br&gt; zorla satır sonu var.&lt;br&gt;
+Yeni satıra geçtik!&lt;/p&gt;
+            </div>
+            
+            <div class="example-content">
+                <p>Bu ilk paragrafımdır. Paragraflar metni organize etmek için kullanılır.</p>
+                
+                <p>Bu ikinci paragraf. Her paragraf arasında otomatik olarak boşluk bırakılır.</p>
+                
+                <p>
+                    Bu çok satırlı bir paragraf.
+                    HTML'de satır sonları otomatik olarak
+                    tek boşluk karakteri olarak algılanır.
+                </p>
+                
+                <p>Bu paragrafta <br> zorla satır sonu var.<br>
+                Yeni satıra geçtik!</p>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Kendiniz hakkında 3 paragraf yazın</li>
+                    <li>Bir paragrafın içinde &lt;br&gt; etiketi kullanın</li>
+                    <li>Çok satırlı paragraf yazıp sonucunu gözlemleyin</li>
+                    <li>Paragraflar arası boşlukları inceleyin</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 5: Vurgulama Etiketleri -->
+        <div class="example" id="example5">
+            <h2>💪 Örnek 5: B, Strong, I, Em Etiketleri</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Vurgulama etiketleri arasındaki farkları anlamak.
+            </div>
+            
+            <div class="code-block">
+&lt;p&gt;&lt;b&gt;Kalın metin&lt;/b&gt; - Sadece görsel kalınlık&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Güçlü vurgu&lt;/strong&gt; - Önemli içerik (SEO için değerli)&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;İtalik metin&lt;/i&gt; - Sadece görsel eğiklik&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vurgulanmış metin&lt;/em&gt; - Anlamsal vurgu&lt;/p&gt;
+
+&lt;p&gt;Bu &lt;b&gt;önemli&lt;/b&gt; bir &lt;i&gt;duyuru&lt;/i&gt;dur.&lt;/p&gt;
+&lt;p&gt;Bu &lt;strong&gt;çok önemli&lt;/strong&gt; bir &lt;em&gt;uyarı&lt;/em&gt;dır.&lt;/p&gt;
+            </div>
+            
+            <div class="example-content">
+                <p><b>Kalın metin</b> - Sadece görsel kalınlık</p>
+                <p><strong>Güçlü vurgu</strong> - Önemli içerik (SEO için değerli)</p>
+                
+                <p><i>İtalik metin</i> - Sadece görsel eğiklik</p>
+                <p><em>Vurgulanmış metin</em> - Anlamsal vurgu</p>
+                
+                <p>Bu <b>önemli</b> bir <i>duyuru</i>dur.</p>
+                <p>Bu <strong>çok önemli</strong> bir <em>uyarı</em>dır.</p>
+            </div>
+            
+            <div class="highlight">
+                <strong>Hangi Etiketi Kullanmalı?</strong><br>
+                • <strong>&lt;strong&gt;</strong>: Önemli içerik için (SEO + Ekran okuyucular)<br>
+                • <strong>&lt;b&gt;</strong>: Sadece görsel kalınlık için<br>
+                • <strong>&lt;em&gt;</strong>: Vurgu için (SEO + Ekran okuyucular)<br>
+                • <strong>&lt;i&gt;</strong>: Sadece görsel eğiklik için
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Bir haber metni yazın ve önemli kelimeleri &lt;strong&gt; ile işaretleyin</li>
+                    <li>Bir kitap incelemesi yazın ve kitap adlarını &lt;em&gt; ile vurgulayın</li>
+                    <li>Görsel amaçlı &lt;b&gt; ve &lt;i&gt; etiketlerini kullanın</li>
+                    <li>Aynı cümlede birden fazla vurgulama türü kullanın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 6: Metin Biçimlendirme -->
+        <div class="example" id="example6">
+            <h2>✏️ Örnek 6: U, Ins, Small Etiketleri</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Özel metin biçimlendirme etiketlerini kullanmak.
+            </div>
+            
+            <div class="code-block">
+&lt;p&gt;&lt;u&gt;Altı çizili metin&lt;/u&gt; - Görsel altı çizgi&lt;/p&gt;
+&lt;p&gt;&lt;ins&gt;Eklenen metin&lt;/ins&gt; - Anlamsal ekleme (çoğunlukla altı çizili görünür)&lt;/p&gt;
+
+&lt;p&gt;Normal metin boyutu&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Küçük metin - yasal bilgiler, telif hakları için ideal&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Döküman versiyonu: 1.0 
+&lt;ins&gt;(son güncelleme eklendi)&lt;/ins&gt;
+&lt;small&gt;© 2024 Tüm hakları saklıdır&lt;/small&gt;&lt;/p&gt;
+            </div>
+            
+            <div class="example-content">
+                <p><u>Altı çizili metin</u> - Görsel altı çizgi</p>
+                <p><ins>Eklenen metin</ins> - Anlamsal ekleme (çoğunlukla altı çizili görünür)</p>
+                
+                <p>Normal metin boyutu</p>
+                <p><small>Küçük metin - yasal bilgiler, telif hakları için ideal</small></p>
+                
+                <p>Döküman versiyonu: 1.0 
+                <ins>(son güncelleme eklendi)</ins><br>
+                <small>© 2024 Tüm hakları saklıdır</small></p>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Bir sözleşme metni yazın ve eklenen kısımları &lt;ins&gt; ile işaretleyin</li>
+                    <li>Footer bölümü oluşturun ve telif bilgilerini &lt;small&gt; ile yazın</li>
+                    <li>Önemli terimleri &lt;u&gt; ile altını çizin</li>
+                    <li>Tüm etiketleri aynı paragrafta birlikte kullanın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 7: Özel Metin Etiketleri -->
+        <div class="example" id="example7">
+            <h2>🔧 Örnek 7: Pre ve Del Etiketleri</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Özel durumlarda kullanılan metin etiketlerini öğrenmek.
+            </div>
+            
+            <div class="code-block">
+&lt;pre&gt;
+Bu pre etiketidir
+    Boşluklar     korunur
+        Girinti     de korunur
+Satır sonları da
+    aynen kalır
+&lt;/pre&gt;
+
+&lt;pre&gt;
+function selamla() {
+    console.log("Merhaba!");
+    return true;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;del&gt;Eski fiyat: 100 TL&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;Yeni fiyat: 80 TL&lt;/p&gt;
+
+&lt;p&gt;Alışveriş listesi:&lt;/p&gt;
+&lt;p&gt;✓ &lt;del&gt;Ekmek al&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;✓ &lt;del&gt;Süt al&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;○ Meyve al&lt;/p&gt;
+            </div>
+            
+            <div class="example-content">
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto;">
+Bu pre etiketidir
+    Boşluklar     korunur
+        Girinti     de korunur
+Satır sonları da
+    aynen kalır
+                </pre>
+                
+                <pre style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 5px; overflow-x: auto;">
+function selamla() {
+    console.log("Merhaba!");
+    return true;
+}
+                </pre>
+                
+                <p><del>Eski fiyat: 100 TL</del></p>
+                <p>Yeni fiyat: 80 TL</p>
+                
+                <p>Alışveriş listesi:</p>
+                <p>✓ <del>Ekmek al</del></p>
+                <p>✓ <del>Süt al</del></p>
+                <p>○ Meyve al</p>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>&lt;pre&gt; etiketi ile ASCII art oluşturun</li>
+                    <li>Basit bir kod bloğu yazın ve &lt;pre&gt; ile gösterin</li>
+                    <li>&lt;del&gt; etiketi ile yapılacaklar listesi oluşturun</li>
+                    <li>Fiyat güncellemesi örneği yapın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 8: Alt/Üst Simge -->
+        <div class="example" id="example8">
+            <h2>🔢 Örnek 8: Sup ve Sub Etiketleri</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Matematiksel ve kimyasal formüllerde alt/üst simge kullanımı.
+            </div>
+            
+            <div class="code-block">
+&lt;!-- Matematik formülleri --&gt;
+&lt;p&gt;E = mc&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;2&lt;sup&gt;8&lt;/sup&gt; = 256&lt;/p&gt;
+
+&lt;!-- Kimya formülleri --&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O (Su)&lt;/p&gt;
+&lt;p&gt;CO&lt;sub&gt;2&lt;/sub&gt; (Karbondioksit)&lt;/p&gt;
+&lt;p&gt;C&lt;sub&gt;6&lt;/sub&gt;H&lt;sub&gt;12&lt;/sub&gt;O&lt;sub&gt;6&lt;/sub&gt; (Glikoz)&lt;/p&gt;
+
+&lt;!-- Dipnotlar --&gt;
+&lt;p&gt;Bu önemli bir bilgidir&lt;sup&gt;1&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;İkinci dipnot örneği&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;!-- Karışık kullanım --&gt;
+&lt;p&gt;(a + b)&lt;sup&gt;2&lt;/sup&gt; = a&lt;sup&gt;2&lt;/sup&gt; + 2ab + b&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+            </div>
+            
+            <div class="example-content">
+                <h3>Matematik Formülleri:</h3>
+                <p>E = mc<sup>2</sup></p>
+                <p>x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></p>
+                <p>2<sup>8</sup> = 256</p>
+                
+                <h3>Kimya Formülleri:</h3>
+                <p>H<sub>2</sub>O (Su)</p>
+                <p>CO<sub>2</sub> (Karbondioksit)</p>
+                <p>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (Glikoz)</p>
+                
+                <h3>Dipnotlar:</h3>
+                <p>Bu önemli bir bilgidir<sup>1</sup></p>
+                <p>İkinci dipnot örneği<sup>2</sup></p>
+                
+                <h3>Karışık Kullanım:</h3>
+                <p>(a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></p>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>En sevdiğiniz matematiksel formülü yazın</li>
+                    <li>5 farklı kimyasal bileşik formülü oluşturun</li>
+                    <li>Dipnotlu bir paragraf yazın</li>
+                    <li>Alt ve üst simgeyi aynı formülde kullanın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 9: Sıralı Listeler -->
+        <div class="example" id="example9">
+            <h2>🔢 Örnek 9: Sıralı Listeler (OL)</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Sıralı listelerin farklı türlerini ve özelliklerini öğrenmek.
+            </div>
+            
+            <div class="code-block">
+&lt;!-- Temel sıralı liste --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Birinci adım&lt;/li&gt;
+    &lt;li&gt;İkinci adım&lt;/li&gt;
+    &lt;li&gt;Üçüncü adım&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Farklı başlangıç numarası --&gt;
+&lt;ol start="5"&gt;
+    &lt;li&gt;Beşinci madde&lt;/li&gt;
+    &lt;li&gt;Altıncı madde&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Farklı liste türleri --&gt;
+&lt;ol type="A"&gt;
+    &lt;li&gt;A harfi ile&lt;/li&gt;
+    &lt;li&gt;B harfi ile&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="i"&gt;
+    &lt;li&gt;Küçük roma rakamı&lt;/li&gt;
+    &lt;li&gt;İkinci roma rakamı&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- İç içe listeler --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Ana kategoriler
+        &lt;ol type="a"&gt;
+            &lt;li&gt;Alt kategori 1&lt;/li&gt;
+            &lt;li&gt;Alt kategori 2&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;İkinci ana kategori&lt;/li&gt;
+&lt;/ol&gt;
+            </div>
+            
+            <div class="example-content">
+                <h3>Temel Sıralı Liste:</h3>
+                <ol>
+                    <li>Birinci adım</li>
+                    <li>İkinci adım</li>
+                    <li>Üçüncü adım</li>
+                </ol>
+                
+                <h3>5'ten Başlayan Liste:</h3>
+                <ol start="5">
+                    <li>Beşinci madde</li>
+                    <li>Altıncı madde</li>
+                </ol>
+                
+                <h3>Farklı Liste Türleri:</h3>
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                    <div>
+                        <strong>Büyük harfler:</strong>
+                        <ol type="A">
+                            <li>A harfi ile</li>
+                            <li>B harfi ile</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <strong>Küçük roma:</strong>
+                        <ol type="i">
+                            <li>Küçük roma rakamı</li>
+                            <li>İkinci roma rakamı</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3>İç İçe Listeler:</h3>
+                <ol>
+                    <li>Ana kategoriler
+                        <ol type="a">
+                            <li>Alt kategori 1</li>
+                            <li>Alt kategori 2</li>
+                        </ol>
+                    </li>
+                    <li>İkinci ana kategori</li>
+                </ol>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Tarif adımları için sıralı liste oluşturun</li>
+                    <li>Farklı type değerleri ile listeler deneyin</li>
+                    <li>10'dan başlayan bir liste yapın</li>
+                    <li>3 seviyeli iç içe liste oluşturun</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Örnek 10: Sırasız Listeler -->
+        <div class="example" id="example10">
+            <h2>• Örnek 10: Sırasız Listeler (UL)</h2>
+            
+            <div class="highlight">
+                <strong>Öğrenme Hedefi:</strong> Sırasız listelerin farklı türlerini ve kullanım alanlarını öğrenmek.
+            </div>
+            
+            <div class="code-block">
+&lt;!-- Temel sırasız liste --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Elma&lt;/li&gt;
+    &lt;li&gt;Armut&lt;/li&gt;
+    &lt;li&gt;Muz&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Farklı işaret türleri (CSS ile) --&gt;
+&lt;ul style="list-style-type: square"&gt;
+    &lt;li&gt;Kare işaret&lt;/li&gt;
+    &lt;li&gt;İkinci madde&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul style="list-style-type: circle"&gt;
+    &lt;li&gt;Boş daire&lt;/li&gt;
+    &lt;li&gt;İkinci madde&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- İç içe sırasız listeler --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Meyveler
+        &lt;ul&gt;
+            &lt;li&gt;Tropik meyveler
+                &lt;ul&gt;
+                    &lt;li&gt;Ananas&lt;/li&gt;
+                    &lt;li&gt;Mango&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;Yerel meyveler&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Sebzeler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Karışık liste kullanımı --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Yapılacaklar:
+        &lt;ol&gt;
+            &lt;li&gt;Alışverişe git&lt;/li&gt;
+            &lt;li&gt;Ev temizliği yap&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Hobi aktiviteleri:
+        &lt;ul&gt;
+            &lt;li&gt;Kitap okuma&lt;/li&gt;
+            &lt;li&gt;Film izleme&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+            </div>
+            
+            <div class="example-content">
+                <h3>Temel Sırasız Liste:</h3>
+                <ul>
+                    <li>Elma</li>
+                    <li>Armut</li>
+                    <li>Muz</li>
+                </ul>
+                
+                <h3>Farklı İşaret Türleri:</h3>
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                    <div>
+                        <strong>Kare işaret:</strong>
+                        <ul style="list-style-type: square">
+                            <li>Kare işaret</li>
+                            <li>İkinci madde</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Boş daire:</strong>
+                        <ul style="list-style-type: circle">
+                            <li>Boş daire</li>
+                            <li>İkinci madde</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>İç İçe Sırasız Listeler:</h3>
+                <ul>
+                    <li>Meyveler
+                        <ul>
+                            <li>Tropik meyveler
+                                <ul>
+                                    <li>Ananas</li>
+                                    <li>Mango</li>
+                                </ul>
+                            </li>
+                            <li>Yerel meyveler</li>
+                        </ul>
+                    </li>
+                    <li>Sebzeler</li>
+                </ul>
+                
+                <h3>Karışık Liste Kullanımı:</h3>
+                <ul>
+                    <li>Yapılacaklar:
+                        <ol>
+                            <li>Alışverişe git</li>
+                            <li>Ev temizliği yap</li>
+                        </ol>
+                    </li>
+                    <li>Hobi aktiviteleri:
+                        <ul>
+                            <li>Kitap okuma</li>
+                            <li>Film izleme</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="task-list">
+                <h3>📝 Yapılacaklar:</h3>
+                <ul>
+                    <li>Alışveriş listesi oluşturun</li>
+                    <li>Farklı işaret türleri ile deneme yapın</li>
+                    <li>Menü sistemi için iç içe liste oluşturun</li>
+                    <li>Sıralı ve sırasız listeleri karıştırın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🎉 Tebrikler! HTML temel etiketlerini öğrendiniz. Şimdi bu bilgileri kendi projelerinizde kullanabilirsiniz.</p>
+            <p><small>Bu uygulamayı tamamladıktan sonra kendi HTML sayfalarınızı oluşturmaya başlayabilirsiniz.</small></p>
+        </div>
+    </div>
+
+    <script>
+        let currentExample = 1;
+        const totalExamples = 10;
+        
+        function showExample(num) {
+            // Tüm örnekleri gizle
+            for(let i = 1; i <= totalExamples; i++) {
+                document.getElementById(`example${i}`).classList.remove('active');
+            }
+            
+            // Tüm butonların active sınıfını kaldır
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Seçilen örneği göster
+            document.getElementById(`example${num}`).classList.add('active');
+            
+            // İlgili butona active sınıfı ekle
+            buttons[num - 1].classList.add('active');
+            
+            // Progress bar'ı güncelle
+            const progressPercent = (num / totalExamples) * 100;
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+            
+            currentExample = num;
+            
+            // Sayfanın üstüne kaydır
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Klavye kısayolları
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' && currentExample > 1) {
+                showExample(currentExample - 1);
+            } else if (e.key === 'ArrowRight' && currentExample < totalExamples) {
+                showExample(currentExample + 1);
+            }
+        });
+        
+        // İlk yüklemede animasyon
+        window.addEventListener('load', function() {
+            document.querySelector('.container').style.animation = 'fadeInUp 0.8s ease-out';
+        });
+        
+        // Progress bar hover efekti
+        document.querySelector('.progress-bar').addEventListener('mouseenter', function() {
+            this.style.transform = 'scaleY(1.5)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        document.querySelector('.progress-bar').addEventListener('mouseleave', function() {
+            this.style.transform = 'scaleY(1)';
+        });
+    </script>
+</body>
+</html>

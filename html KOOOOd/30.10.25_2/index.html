@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+            text-align: center;
+            margin: 80px;
+        }
+
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input,
+        select {
+            height: 40px;
+            border-radius: 4px;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body style="align-items: center;">
+    <h1>İş Başvuru Formu</h1>
+    <div style="display: flex;">
+        <div>
+            <label for="nameinp">Ad Soyad *</label>
+            <input type="text" name="name" id="nameinp" placeholder="Adınızı ve Soyadınızı giriniz">
+            <label for="telinp">Telefon*</label>
+            <input type="tel" name="tel" id="telinp" placeholder="+905xxxxxxxxx">
+        </div>
+        <div>
+            <label for="mailinp">E-posta *</label>
+            <input type="email" name="email" id="mailinp" placeholder="ornek@mail.com">
+            <label for="dateinp">Doğum Tarihi *</label>
+            <input type="date" name="date" id="dateinp">
+        </div>
+    </div>
+    <div>
+        <label for="posinp">Başvurulan Pozisyon *</label>
+        <br>
+        <select name="position" id="posinp">
+            <option value="NO">Seçiniz</option>
+            <option value="yazilim">Yazılım Grliştirici</option>
+            <option value="grafik">Grafik Tasarımcı</option>
+            <option value="proje">Proje Yöneticisi</option>
+            <option value="veri">Veri Analist</option>
+            <option value="sistem">Sistem Uzmanı</option>
+        </select>
+    </div>
+    <label for="yaaa">Yetenekleriniz</label>
+    <div>
+        <input type="checkbox" name="html" id="html_cb" value="html" style="height: 20px; flex-direction: row; margin-left: 50px;">
+        <input type="checkbox" name="css" id="css_cb" value="css" style="height: 20px; flex-direction: row; margin-left: 50px;">
+        <input type="checkbox" name="js" id="js_cb" value="javascript" style="height: 20px; flex-direction: row; margin-left: 50px;">
+        <input type="checkbox" name="python" id="python_cb" value="python" style="height: 20px; flex-direction: row; margin-left: 50px;">
+        <input type="checkbox" name="excel" id="excel_cb" value="excel" style="height: 20px; flex-direction: row; margin-left: 50px;">
+        <input type="checkbox" name="ps" id="ps_cb" value="photoshop" style="height: 20px; flex-direction: row; margin-left: 50px;"><br>
+        <label for="html_cb" style="margin-left: 50px; flex-direction: row;">HTML</label>
+        <label for="css_cb" style="margin-left: 50px; flex-direction: row;">CSS</label>
+        <label for="js_cb" style="margin-left: 50px; flex-direction: row;">JavaScript</label>
+        <label for="python_cb" style="margin-left: 50px; flex-direction: row;">Python</label>
+        <label for="excel_cb" style="margin-left: 50px; flex-direction: row;">Excel</label>
+        <label for="ps_cb" style="margin-left: 50px; flex-direction: row;">Photoshop</label>
+    </div>
+    <br>
+    <label for="yaaa">İlgi Alanları</label>
+    <div style="display: flex;">
+        <input type="checkbox" name="tech" id="tech_cb" value="tech">
+        <label for="tech_cb">Teknoloji</label><br>
+        <input type="checkbox" name="art" id="art_cb" value="art">
+        <label for="art_cb">Sanat</label><br>
+        <input type="checkbox" name="sport" id="sport_cb" value="sport">
+        <label for="sport_cb">Spor</label><br>
+        <input type="checkbox" name="music" id="music_cb" value="music">
+        <label for="music_cb">Müzik</label><br>
+        <input type="checkbox" name="kitap" id="kitap_cb" value="kitap">
+        <label for="kitap_cb">Kitap</label><br>
+        <input type="checkbox" name="travel" id="travel_cb" value="travel">
+        <label for="travel_cb">Seyahat</label>
+    </div>
+    <label for="YETER AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Araba kullanıyor musunuz?</label>
+    
+</body>
+
+</html>

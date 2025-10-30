@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML A Etiketi Dökümanı</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            border: 2px solid #ddd;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+        }
+        
+        .ornek-kutu {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+        }
+        
+        .kod {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border: 1px solid #34495e;
+            display: block;
+        }
+        
+        .aciklama {
+            background-color: #fff9e6;
+            border-left: 4px solid #f39c12;
+        }
+        
+        table {
+            border: 2px solid #34495e;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            border: 1px solid #2980b9;
+        }
+        
+        td {
+            border: 1px solid #bdc3c7;
+        }
+        
+        a {
+            color: #3498db;
+        }
+        
+        a:visited {
+            color: #9b59b6;
+        }
+        
+        a:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding: 20px; margin: 20px;">
+        <h1>HTML &lt;a&gt; Etiketi (Anchor - Bağlantı)</h1>
+        
+        <h2 style="padding-left: 10px;">Temel Kullanım</h2>
+        <p><strong>&lt;a&gt;</strong> etiketi, HTML'de hyperlink (köprü) oluşturmak için kullanılır. Kullanıcıların bir sayfadan başka bir sayfaya, belgeye veya konuma gitmesini sağlar.</p>
+        
+        <div class="kod" style="padding: 10px; margin: 10px 0;">
+            &lt;a href="adres"&gt;Görünen Metin&lt;/a&gt;
+        </div>
+        
+        <h2 style="padding-left: 10px;">Önemli Özellikler (Attributes)</h2>
+        
+        <table style="width: 100%; margin: 15px 0;">
+            <tr>
+                <th style="padding: 10px;">Özellik</th>
+                <th style="padding: 10px;">Açıklama</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>href</strong></td>
+                <td style="padding: 8px;">Gidilecek adresi belirtir (en önemli özellik)</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>target</strong></td>
+                <td style="padding: 8px;">Bağlantının nerede açılacağını belirtir</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>title</strong></td>
+                <td style="padding: 8px;">Fare üzerine geldiğinde gösterilecek açıklama</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>download</strong></td>
+                <td style="padding: 8px;">Dosyanın indirilmesini sağlar</td>
+            </tr>
+        </table>
+        
+        <h2 style="padding-left: 10px;">Örnekler</h2>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>1. Basit Bağlantı</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="https://www.google.com"&gt;Google'a Git&lt;/a&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="https://www.google.com">Google'a Git</a></p>
+        </div>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>2. Yeni Sekmede Açma (target="_blank")</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="https://www.wikipedia.org" target="_blank"&gt;Wikipedia (Yeni Sekme)&lt;/a&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="https://www.wikipedia.org" target="_blank">Wikipedia (Yeni Sekme)</a></p>
+        </div>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>3. Email Bağlantısı (mailto:)</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="mailto:ornek@email.com"&gt;Email Gönder&lt;/a&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="mailto:ornek@email.com">Email Gönder</a></p>
+        </div>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>4. Telefon Bağlantısı (tel:)</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="tel:+905551234567"&gt;Ara: +90 555 123 45 67&lt;/a&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="tel:+905551234567">Ara: +90 555 123 45 67</a></p>
+        </div>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>5. Aynı Sayfada Bölüme Gitme (Anchor Link)</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="#alt-bolum"&gt;Alta Git&lt;/a&gt;<br><br>
+                &lt;h2 id="alt-bolum"&gt;Alt Bölüm&lt;/h2&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="#test-bolum">Test Bölümüne Git</a></p>
+        </div>
+        
+        <div class="ornek-kutu" style="padding: 15px; margin: 15px 0;">
+            <h3>6. Title Özelliği ile Açıklama</h3>
+            <div class="kod" style="padding: 10px; margin: 10px 0;">
+                &lt;a href="https://www.github.com" title="Kod paylaşım platformu"&gt;GitHub&lt;/a&gt;
+            </div>
+            <p><strong>Çalışan Örnek:</strong> <a href="https://www.github.com" title="Kod paylaşım platformu">GitHub</a> (Farenizi üzerine getirin)</p>
+        </div>
+        
+        <div class="aciklama" style="padding: 15px; margin: 20px 0;">
+            <h3>💡 Önemli Notlar</h3>
+            <ul>
+                <li><strong>href</strong> olmadan &lt;a&gt; etiketi çalışmaz</li>
+                <li><strong>target="_blank"</strong> kullanırken güvenlik için <strong>rel="noopener noreferrer"</strong> eklemek önerilir</li>
+                <li>Bağlantı metni açıklayıcı olmalı ("tıklayın" yerine "ürün sayfasına git" gibi)</li>
+                <li>Ziyaret edilmiş linkler farklı renkte görünür (visited durumu)</li>
+            </ul>
+        </div>
+        
+        <h2 style="padding-left: 10px;" id="test-bolum">Target Özelliği Değerleri</h2>
+        
+        <table style="width: 100%; margin: 15px 0;">
+            <tr>
+                <th style="padding: 10px;">Değer</th>
+                <th style="padding: 10px;">Açıklama</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>_blank</strong></td>
+                <td style="padding: 8px;">Yeni pencere veya sekmede açar</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>_self</strong></td>
+                <td style="padding: 8px;">Aynı pencerede açar (varsayılan)</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>_parent</strong></td>
+                <td style="padding: 8px;">Üst frame'de açar</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;"><strong>_top</strong></td>
+                <td style="padding: 8px;">Tüm frame'leri kaldırıp tam pencerede açar</td>
+            </tr>
+        </table>
+        
+        <div style="background-color: #e8f8f5; border: 1px solid #1abc9c; padding: 15px; margin: 20px 0;">
+            <h3 style="color: #16a085;">✓ Özet</h3>
+            <p>&lt;a&gt; etiketi web'in temel taşıdır. Sayfalar arası gezinmeyi, email göndermeyi, telefon aramayı ve aynı sayfa içinde hareketliliği sağlar. Her zaman anlamlı ve erişilebilir bağlantılar oluşturun!</p>
+        </div>
+    </div>
+</body>
+</html>

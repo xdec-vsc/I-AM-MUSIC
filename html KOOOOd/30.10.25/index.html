@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            background-color: #f5f5f5;
+            border: 2px solid;
+        }
+
+        h1{
+            border-bottom: 3px solid lightblue;
+        }
+
+        h2{
+            border-left: 4px solid cyan;
+        }
+        a{
+            color: green;
+        }
+        a:hover{
+            color:blueviolet
+        }
+        a:visited{
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont" style="padding: 20px; margin: 20px;">
+        <h1 id="a_balık">HTML &lt;a&gt; Etiketi (Anchor Bağlantı)</h1>
+        <h2>Temel Kullanım</h2>
+        <a href="https://google.com">Google'a Git</a> -basit &lt;a href&gt;
+        <br>
+        <a href="https://tr.wikipedia.org" target="_blank">Wikipedia (Yeni Sekme)</a> -&lt;a href target="_blank"&gt; ile yeni sekmede açılıyor
+        <br>
+        <a href="mailto:profilomtal@meb.gov.tr">Profilo'ya Email Gönder:</a> -email için &lt;a href="mailto:"&gt;
+        <br>
+        <a href="tel:+905551234578">+90 555 123 45 67 Ara</a> -telefon araması için &lt;a href="tel:"&gt;
+        <br>
+        <a href="#meter">Meter'e Git</a> -sayfadaki bir alan için &lt;a href="#"&gt;
+        <br>
+        <a href="https://github.com" title="Github ÇOK seviyorum">Github</a> -linkin üstüne gelince yazı görünsün diye &lt;a href title=""&gt;
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="cont" style="padding: 20px; margin: 20px;">
+        <h1 id="">HTML'de &lt;meter&gt; ve &lt;progress&gt; Etiketleri</h1>
+        <h2>1. &lt;progress&gt; Etiketi</h2>
+        <progress value="70" max="100"></progress>
+        <br>
+        <progress value="30" max="100"></progress>
+        <br>
+        <progress></progress>
+        <br>
+        <br>
+        <br>
+
+        <h2 id="meter">2. &lt;meter&gt;</h2>
+        <meter value="6" min="0" max="10"></meter>
+        <ul>
+            <li>value = değer</li>
+            <li>min = minimum/en az</li>
+            <li>max = maximum/en fazla</li>
+            <li>low = düşük/düşük alan</li>
+            <li>high = yüksek/yüksek alan</li>
+            <li>optimum = en iyi</li>
+        </ul>
+        <meter value="40" min="0" max="100" low="30" high="70" optimum="20"></meter>
+        <br><meter value="85" min="0" max="100" low="30" high="70" optimum="20"></meter>
+        <br><meter value="90" min="0" max="100" low="30" high="70" optimum="20"></meter>
+        <br><meter value="8.5" min="0" max="10" low="5" high="7" optimum="9"></meter>
+        <br><meter value="20" min="0" max="100" low="25" high="75" optimum="90"></meter>
+    </div>
+</body>
+</html>
