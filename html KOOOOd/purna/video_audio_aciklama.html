@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Video ve Audio Etiketleri</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            border: 2px solid #4CAF50;
+        }
+        h1 {
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2196F3;
+            border-left: 4px solid #2196F3;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .code {
+            background-color: #f4f4f4;
+            border-left: 3px solid #FF9800;
+            color: #d63384;
+        }
+        table {
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            border: 1px solid #ddd;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+    
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 30px;">
+        
+        <h1 style="text-align: center; padding-bottom: 10px;">HTML Video ve Audio Etiketleri</h1>
+        
+        <!-- VIDEO ETİKETİ -->
+        <section style="margin-bottom: 40px;">
+            <h2 style="padding-left: 10px;">📹 &lt;video&gt; Etiketi</h2>
+            
+            <p style="line-height: 1.6;">
+                <strong>&lt;video&gt;</strong> etiketi, HTML5 ile birlikte gelen ve web sayfalarına video içeriği eklemeyi sağlayan bir etikettir. 
+                Flash gibi eklentilere ihtiyaç duymadan doğrudan tarayıcıda video oynatabilir.
+            </p>
+            
+            <h3>Temel Kullanım:</h3>
+            <div class="code" style="padding: 15px; margin: 10px 0; font-family: monospace;">
+                &lt;video src="video.mp4" controls&gt;&lt;/video&gt;
+            </div>
+            
+            <h3>Önemli Özellikler (Attributes):</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                <tr>
+                    <th style="padding: 10px; text-align: left;">Özellik</th>
+                    <th style="padding: 10px; text-align: left;">Açıklama</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>controls</strong></td>
+                    <td style="padding: 8px;">Oynat/durdur, ses, tam ekran gibi kontrolleri gösterir</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>autoplay</strong></td>
+                    <td style="padding: 8px;">Video otomatik olarak oynatılır (çoğu tarayıcı sessiz olmasını gerektirir)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>loop</strong></td>
+                    <td style="padding: 8px;">Video bittiğinde tekrar başa döner</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>muted</strong></td>
+                    <td style="padding: 8px;">Video sessiz olarak başlar</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>poster</strong></td>
+                    <td style="padding: 8px;">Video yüklenmeden önce gösterilecek resim</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>width/height</strong></td>
+                    <td style="padding: 8px;">Video boyutlarını piksel cinsinden belirler</td>
+                </tr>
+            </table>
+            
+            <h3>Gelişmiş Örnek:</h3>
+            <div class="code" style="padding: 15px; margin: 10px 0; font-family: monospace; font-size: 14px;">
+&lt;video width="600" height="400" controls poster="onizleme.jpg"&gt;<br>
+&nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+&nbsp;&nbsp;&lt;source src="video.webm" type="video/webm"&gt;<br>
+&nbsp;&nbsp;&lt;source src="video.ogg" type="video/ogg"&gt;<br>
+&nbsp;&nbsp;Tarayıcınız video etiketini desteklemiyor.<br>
+&lt;/video&gt;
+            </div>
+            
+            <h3>Canlı Örnek:</h3>
+            <div class="example" style="padding: 20px; margin: 15px 0;">
+                <video width="100%" height="300" controls style="display: block; background-color: black;">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                    ☝️ Bu video <strong>controls</strong> özelliği ile birlikte gelir. Oynatma kontrollerini kullanabilirsiniz.
+                </p>
+            </div>
+        </section>
+        
+        <!-- AUDIO ETİKETİ -->
+        <section style="margin-bottom: 40px;">
+            <h2 style="padding-left: 10px;">🔊 &lt;audio&gt; Etiketi</h2>
+            
+            <p style="line-height: 1.6;">
+                <strong>&lt;audio&gt;</strong> etiketi, web sayfalarına ses dosyaları eklemeyi sağlar. 
+                Video etiketine benzer şekilde çalışır ancak yalnızca ses içeriği için kullanılır.
+            </p>
+            
+            <h3>Temel Kullanım:</h3>
+            <div class="code" style="padding: 15px; margin: 10px 0; font-family: monospace;">
+                &lt;audio src="ses.mp3" controls&gt;&lt;/audio&gt;
+            </div>
+            
+            <h3>Önemli Özellikler (Attributes):</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                <tr>
+                    <th style="padding: 10px; text-align: left;">Özellik</th>
+                    <th style="padding: 10px; text-align: left;">Açıklama</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>controls</strong></td>
+                    <td style="padding: 8px;">Oynatma kontrollerini gösterir</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>autoplay</strong></td>
+                    <td style="padding: 8px;">Ses otomatik olarak oynatılır</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>loop</strong></td>
+                    <td style="padding: 8px;">Ses bittiğinde tekrar başa döner</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>muted</strong></td>
+                    <td style="padding: 8px;">Ses sessiz olarak başlar</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>preload</strong></td>
+                    <td style="padding: 8px;">Sayfa yüklenirken sesin nasıl yükleneceğini belirler (auto/metadata/none)</td>
+                </tr>
+            </table>
+            
+            <h3>Gelişmiş Örnek:</h3>
+            <div class="code" style="padding: 15px; margin: 10px 0; font-family: monospace; font-size: 14px;">
+&lt;audio controls preload="auto"&gt;<br>
+&nbsp;&nbsp;&lt;source src="ses.mp3" type="audio/mpeg"&gt;<br>
+&nbsp;&nbsp;&lt;source src="ses.ogg" type="audio/ogg"&gt;<br>
+&nbsp;&nbsp;&lt;source src="ses.wav" type="audio/wav"&gt;<br>
+&nbsp;&nbsp;Tarayıcınız audio etiketini desteklemiyor.<br>
+&lt;/audio&gt;
+            </div>
+            
+            <h3>Canlı Örnek:</h3>
+            <div class="example" style="padding: 20px; margin: 15px 0;">
+                <audio controls style="display: block; width: 100%;">
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                    Tarayıcınız audio etiketini desteklemiyor.
+                </audio>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                    ☝️ Bu ses dosyası <strong>controls</strong> özelliği ile birlikte gelir. Oynat/durdur ve ses seviyesi kontrolü yapabilirsiniz.
+                </p>
+            </div>
+            
+            <h3>Loop ve Autoplay Örneği:</h3>
+            <div class="example" style="padding: 20px; margin: 15px 0;">
+                <audio controls loop>
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                </audio>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                    🔄 Bu ses dosyası <strong>loop</strong> özelliği ile sürekli tekrar eder.
+                </p>
+            </div>
+        </section>
+        
+        <!-- ÖNEMLİ NOTLAR -->
+        <section style="margin-bottom: 40px;">
+            <h2 style="padding-left: 10px;">💡 Önemli Notlar</h2>
+            
+            <div class="note" style="padding: 15px; margin: 10px 0;">
+                <strong>🎯 Dosya Formatları:</strong><br>
+                Farklı tarayıcılar farklı formatları destekler. En iyi uyumluluk için birden fazla format kullanın:<br>
+                • Video: MP4 (en yaygın), WebM, Ogg<br>
+                • Audio: MP3 (en yaygın), WAV, Ogg
+            </div>
+            
+            <div class="note" style="padding: 15px; margin: 10px 0;">
+                <strong>⚠️ Autoplay Politikası:</strong><br>
+                Çoğu modern tarayıcı, kullanıcı deneyimini korumak için autoplay özelliğini kısıtlar. 
+                Autoplay çalışması için genellikle <strong>muted</strong> özelliği gereklidir.
+            </div>
+            
+            <div class="note" style="padding: 15px; margin: 10px 0;">
+                <strong>📱 Erişilebilirlik:</strong><br>
+                • Her zaman alternatif metin veya açıklama ekleyin<br>
+                • Altyazı için &lt;track&gt; etiketi kullanabilirsiniz<br>
+                • Keyboard kontrollerini test edin
+            </div>
+        </section>
+        
+        <!-- KARŞILAŞTIRMA -->
+        <section>
+            <h2 style="padding-left: 10px;">🔄 Video vs Audio Karşılaştırması</h2>
+            
+            <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                <tr>
+                    <th style="padding: 10px;">Özellik</th>
+                    <th style="padding: 10px;">&lt;video&gt;</th>
+                    <th style="padding: 10px;">&lt;audio&gt;</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>Görsel İçerik</strong></td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                    <td style="padding: 8px; text-align: center;">❌ Hayır</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>Poster Özelliği</strong></td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                    <td style="padding: 8px; text-align: center;">❌ Hayır</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>Width/Height</strong></td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                    <td style="padding: 8px; text-align: center;">❌ Hayır (yalnızca control bar)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>Controls</strong></td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;"><strong>Autoplay/Loop/Muted</strong></td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                    <td style="padding: 8px; text-align: center;">✅ Evet</td>
+                </tr>
+            </table>
+        </section>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; color: #666;">
+            <p>HTML5 Video ve Audio Etiketleri Rehberi</p>
+        </footer>
+        
+    </div>
+    
+</body>
+</html>
