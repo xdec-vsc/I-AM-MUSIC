@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Seçiciler Rehberi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "▸";
+            margin-right: 10px;
+            color: #667eea;
+        }
+
+        .selector-type {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .selector-type h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        code {
+            background: #2d3748;
+            color: #68d391;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        .example {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px dashed #cbd5e0;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Örnekler için stil */
+        #example-id {
+            background: #48bb78;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .example-class {
+            background: #ed8936;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        p.special {
+            background: #9f7aea;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        div > p {
+            background: #4299e1;
+            color: white;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        a[target="_blank"] {
+            background: #f56565;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        li:first-child {
+            background: #38b2ac;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .hover-example:hover {
+            background: #805ad5;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: 3px solid #667eea;
+            border-color: #667eea;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: #f56565;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Seçiciler Rehberi</h1>
+            <p>CSS'te elementleri seçmek ve stillemek için kullanılan tüm yöntemler</p>
+        </header>
+
+        <div class="content">
+            <div class="section">
+                <h2>Temel Seçiciler</h2>
+
+                <div class="selector-type">
+                    <h3>1. Evrensel Seçici (*)</h3>
+                    <p>Sayfadaki <strong>tüm elementleri</strong> seçer.</p>
+                    <div class="code-block">* {<br>  margin: 0;<br>  padding: 0;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>2. Element Seçici</h3>
+                    <p>Belirli bir HTML etiketine sahip <strong>tüm elementleri</strong> seçer.</p>
+                    <div class="code-block">p {<br>  color: blue;<br>}<br><br>div {<br>  background: gray;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>3. ID Seçici (#)</h3>
+                    <p>Benzersiz bir <code>id</code> özelliğine sahip <strong>tek bir elementi</strong> seçer.</p>
+                    <div class="code-block">#header {<br>  font-size: 24px;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <div id="example-id">Bu element #example-id ile seçildi</div>
+                    </div>
+                    <div class="note">
+                        <strong>Not:</strong> Her sayfada bir ID yalnızca bir kez kullanılmalıdır.
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>4. Class Seçici (.)</h3>
+                    <p>Belirli bir <code>class</code> özelliğine sahip <strong>tüm elementleri</strong> seçer.</p>
+                    <div class="code-block">.button {<br>  padding: 10px;<br>  background: blue;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <div class="example-class">Birinci element</div>
+                        <div class="example-class">İkinci element</div>
+                        <div class="example-class">Üçüncü element</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Birleşik Seçiciler</h2>
+
+                <div class="selector-type">
+                    <h3>5. Çoklu Seçici (,)</h3>
+                    <p>Birden fazla seçiciyi <strong>aynı anda</strong> stillemek için kullanılır.</p>
+                    <div class="code-block">h1, h2, h3 {<br>  color: navy;<br>  font-family: Arial;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>6. Descendant Seçici (boşluk)</h3>
+                    <p>Bir elementin <strong>içindeki tüm</strong> belirli elementleri seçer.</p>
+                    <div class="code-block">div p {<br>  color: red;<br>}</div>
+                    <p>Bu, div içindeki tüm p elementlerini seçer (iç içe olabilir).</p>
+                </div>
+
+                <div class="selector-type">
+                    <h3>7. Child Seçici (>)</h3>
+                    <p>Bir elementin <strong>doğrudan çocuk</strong> elementlerini seçer.</p>
+                    <div class="code-block">div > p {<br>  font-weight: bold;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <div>
+                            <p>Bu doğrudan çocuk (mavi)</p>
+                            <section>
+                                <p>Bu doğrudan çocuk değil (etkilenmez)</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>8. Element + Class Kombinasyonu</h3>
+                    <p>Belirli bir element ve class'a sahip elementleri seçer.</p>
+                    <div class="code-block">p.special {<br>  background: purple;<br>  color: white;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <p class="special">Bu paragraf "special" class'ına sahip</p>
+                        <p>Bu normal paragraf</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Attribute Seçiciler</h2>
+
+                <div class="selector-type">
+                    <h3>9. Attribute Varlık Seçici</h3>
+                    <p>Belirli bir özelliğe sahip elementleri seçer.</p>
+                    <div class="code-block">[disabled] {<br>  opacity: 0.5;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>10. Attribute Değer Seçici</h3>
+                    <p>Belirli bir özellik değerine sahip elementleri seçer.</p>
+                    <div class="code-block">a[target="_blank"] {<br>  color: orange;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <a href="#" target="_blank">Bu link yeni sekmede açılır (kırmızı)</a>
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>11. Attribute Başlangıç Seçici (^=)</h3>
+                    <p>Özellik değeri belirli bir metinle <strong>başlayan</strong> elementleri seçer.</p>
+                    <div class="code-block">a[href^="https"] {<br>  color: green;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>12. Attribute Bitiş Seçici ($=)</h3>
+                    <p>Özellik değeri belirli bir metinle <strong>biten</strong> elementleri seçer.</p>
+                    <div class="code-block">a[href$=".pdf"] {<br>  color: red;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>13. Attribute İçerik Seçici (*=)</h3>
+                    <p>Özellik değeri belirli bir metni <strong>içeren</strong> elementleri seçer.</p>
+                    <div class="code-block">a[href*="google"] {<br>  font-weight: bold;<br>}</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Pseudo-class Seçiciler</h2>
+
+                <div class="selector-type">
+                    <h3>14. :hover</h3>
+                    <p>Fare ile üzerine gelindiğinde elementi seçer.</p>
+                    <div class="code-block">button:hover {<br>  background: darkblue;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <div class="hover-example">Üzerime gel!</div>
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>15. :focus</h3>
+                    <p>Odaklanıldığında (tıklandığında) elementi seçer.</p>
+                    <div class="code-block">input:focus {<br>  border-color: blue;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <input type="text" placeholder="Buraya tıkla">
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>16. :first-child</h3>
+                    <p>İlk çocuk elementi seçer.</p>
+                    <div class="code-block">li:first-child {<br>  font-weight: bold;<br>}</div>
+                    <div class="example">
+                        <span class="example-title">Örnek:</span>
+                        <ul>
+                            <li>İlk öğe (yeşil)</li>
+                            <li>İkinci öğe</li>
+                            <li>Üçüncü öğe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>17. :last-child</h3>
+                    <p>Son çocuk elementi seçer.</p>
+                    <div class="code-block">li:last-child {<br>  color: red;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>18. :nth-child(n)</h3>
+                    <p>Belirli sıradaki çocuk elementi seçer.</p>
+                    <div class="code-block">li:nth-child(2) {<br>  background: yellow;<br>}<br><br>tr:nth-child(even) {<br>  background: #f0f0f0;<br>}</div>
+                    <p><code>even</code> (çift), <code>odd</code> (tek), veya sayı kullanabilirsiniz.</p>
+                </div>
+
+                <div class="selector-type">
+                    <h3>19. :not()</h3>
+                    <p>Belirli seçiciyle eşleşmeyen elementleri seçer.</p>
+                    <div class="code-block">p:not(.special) {<br>  color: gray;<br>}</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Pseudo-element Seçiciler</h2>
+
+                <div class="selector-type">
+                    <h3>20. ::before</h3>
+                    <p>Elementin içeriğinden <strong>önce</strong> sanal bir element oluşturur.</p>
+                    <div class="code-block">p::before {<br>  content: "→ ";<br>  color: blue;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>21. ::after</h3>
+                    <p>Elementin içeriğinden <strong>sonra</strong> sanal bir element oluşturur.</p>
+                    <div class="code-block">p::after {<br>  content: " ←";<br>  color: red;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>22. ::first-letter</h3>
+                    <p>Elementin ilk harfini seçer.</p>
+                    <div class="code-block">p::first-letter {<br>  font-size: 2em;<br>  font-weight: bold;<br>}</div>
+                </div>
+
+                <div class="selector-type">
+                    <h3>23. ::first-line</h3>
+                    <p>Elementin ilk satırını seçer.</p>
+                    <div class="code-block">p::first-line {<br>  color: blue;<br>  text-transform: uppercase;<br>}</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Öncelik Sırası (Specificity)</h2>
+                <p>CSS seçicilerinin öncelik sırası:</p>
+                <div class="code-block">!important > Inline Stil > ID > Class > Element</div>
+                <div class="note">
+                    <strong>Önemli:</strong> Daha spesifik seçiciler, daha genel seçicilerin üzerine yazar. Örneğin, <code>#id</code> seçici <code>.class</code> seçicisinden daha güçlüdür.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>CSS Seçiciler Rehberi - Tüm temel ve ileri seviye seçiciler</p>
+        </footer>
+    </div>
+</body>
+</html>

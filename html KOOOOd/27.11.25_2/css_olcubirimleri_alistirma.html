@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Ölçü Birimleri Atölyesi</title>
+    <style>
+        /* GENEL GÖRÜNÜM AYARLARI (Buraya dokunma) */
+        :root { font-size: 16px; /* Tarayıcı varsayılanı genelde 16px'tir */ }
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; max-width: 900px; margin: 0 auto; color: #333; }
+        section { border: 2px dashed #ccc; padding: 20px; margin-bottom: 30px; border-radius: 8px; background-color: #fafafa; }
+        h2 { margin-top: 0; background: #333; color: white; display: inline-block; padding: 5px 15px; border-radius: 4px; font-size: 1rem; }
+        .info { font-size: 0.9rem; color: #666; margin-bottom: 10px; font-style: italic; }
+        
+        /* ------------------------------------------------------- */
+        /* ÖĞRENCİ ALANI: AŞAĞIDAKİ GÖREVLERİ YAPMAYA ÇALIŞ */
+        /* ------------------------------------------------------- */
+
+        /* GÖREV 1: Piksel (px) - Sabit Birim */
+        /* .kutu-px sınıfına sahip kutunun genişliğini tam olarak 300px, 
+           yüksekliğini 50px ve arka planını "orange" yap. */
+        .kutu-px {
+            width: 300px;
+            height: 50px;
+            background-color: orange;
+        }
+
+
+        /* GÖREV 2: Yüzde (%) - Göreceli Birim */
+        /* .ebeveyn kutusu 500px genişliğinde sabitlendi. 
+           İçindeki .cocuk-yuzde çubuğunun genişliğini ebeveynin %50'si kadar yap.
+           Yüksekliğini 30px, arka planını "dodgerblue" yap. */
+        .ebeveyn { width: 500px; border: 2px solid #333; background: white; }
+        
+        .ebeveyn > .cocuk-yuzde {
+            height: 30px;
+            width: 50%;
+            background-color: dodgerblue;
+        }
+
+
+        /* GÖREV 3: REM - Kök (Root) Elementine Göre */
+        /* HTML'in kök font boyutu 16px'tir.
+           Bu metnin boyutunu 2rem yap (Yani 2 x 16 = 32px olmalı).
+           Rengini "purple" yap. */
+        .yazi-rem {
+            color: purple;
+            font-size: 2rem;
+        }
+
+
+        /* GÖREV 4: EM - Ebeveyn Elementine Göre */
+        /* Ebeveyn div'in font-size'ı 20px olarak ayarlandı.
+           İçindeki .yazi-em sınıfının font boyutunu 1.5em yap.
+           (Hesaplama: 1.5 x 20px = 30px olmalı). */
+        .em-kapsayici { font-size: 20px; border-left: 5px solid red; padding-left: 10px; }
+        
+        .yazi-em {
+            font-size: 1.5em;
+        }
+
+
+        /* GÖREV 5: Viewport Width (vw) - Ekran Genişliğine Göre */
+        /* Bu kutunun genişliği ekranın (tarayıcı penceresinin) %50'si kadar olsun.
+           Yüksekliği 50px, arka planı "crimson" olsun.
+           (Tarayıcıyı daraltıp genişlettiğinde kutu da değişmeli) */
+        .kutu-vw {
+            width: 50vw;
+            height: 50px;
+            background-color: crimson;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>CSS Ölçü Birimleri Testi</h1>
+    <p>Kod editörünü aç ve style etiketi içindeki görevleri tamamla.</p>
+
+    <section>
+        <h2>1. Piksel (px)</h2>
+        <div class="info">Kesin ve değişmez boyutlar için kullanılır.</div>
+        <div class="kutu-px">Ben 300px genişliğinde olmalıyım.</div>
+    </section>
+
+    <section>
+        <h2>2. Yüzde (%)</h2>
+        <div class="info">İçinde bulunduğu kapsayıcıya (ebeveyne) göre şekillenir.</div>
+        <div class="ebeveyn">
+            <div class="cocuk-yuzde">Ebeveynin yarısı (%50)</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. REM (Root EM)</h2>
+        <div class="info">Sayfanın kök font boyutunu (html) baz alır. Tarayıcı ayarlarını bozmaz.</div>
+        <p class="yazi-rem">Ben 2rem büyüklüğündeyim.</p>
+    </section>
+
+    <section>
+        <h2>4. EM</h2>
+        <div class="info">Bir üst elementin (ebeveynin) font boyutunu baz alır.</div>
+        <div class="em-kapsayici">
+            Ben ebeveynim (20px).
+            <p class="yazi-em">Ben çocuğum (1.5em = 30px olmalıyım).</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Viewport Width (vw)</h2>
+        <div class="info">Ekran genişliğine göre değişir (100vw = Tam ekran).</div>
+        <div class="kutu-vw">Ekranın yarısıyım (50vw).</div>
+    </section>
+
+</body>
+</html>

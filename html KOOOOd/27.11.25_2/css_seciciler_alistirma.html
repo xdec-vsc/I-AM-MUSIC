@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Seçici Atölyesi</title>
+    <style>
+        /* GENEL AYARLAR (Buraya dokunma, sayfa düzeni için) */
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        section { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        h2 { margin-top: 0; font-size: 1.2rem; background-color: #eee; display: inline-block; padding: 5px 10px; border-radius: 4px; }
+        
+        /* ------------------------------------------------------- */
+        /* ÖĞRENCİ ALANI: AŞAĞIDAKİ GÖREVLERİ YAPMAYA ÇALIŞ */
+        /* ------------------------------------------------------- */
+
+        /* GÖREV 1: Element Seçici */
+        /* Sayfadaki tüm <p> (paragraf) etiketlerinin yazı rengini gri (#666) yap. */
+        
+        p {
+            color: #666;
+        }
+
+
+        /* GÖREV 2: Class (Sınıf) Seçici */
+        /* Sadece "uyari" sınıfına (class="uyari") sahip olan metinlerin 
+           arka planını sarı, yazı rengini kırmızı yap. */
+
+        .uyari {
+            background-color: yellow;
+            color: red;
+        }
+
+
+        /* GÖREV 3: ID Seçici */
+        /* "ozel-kutu" ID'sine sahip kutunun kenarlığını (border) 
+           3px kalınlığında, düz (solid) ve mavi yap. */
+
+        #ozel-kutu{
+            border: 3px solid blue;
+        }
+
+
+        /* GÖREV 4: Descendant (Torun) Seçici */
+        /* "konteyner" sınıfının İÇİNDEKİ <span> etiketlerini kalın (bold) yap.
+           (Dikkat: Dışarıdaki span etkilenmemeli) */
+
+            .konteyner span {
+                font-weight: bold;
+            }
+
+
+        /* GÖREV 5: Attribute (Özellik) Seçici */
+        /* Tipi "password" olan input alanının arka planını açık mavi (#e0f7fa) yap. */
+
+            input[type^="password"] {
+                background-color: #e0f7fa;
+            }
+
+
+        /* GÖREV 6: Pseudo-class (Hover) */
+        /* "btn" sınıfına sahip butona fare ile üzerine gelindiğinde (:hover)
+           arka plan rengini siyah, yazı rengini beyaz yap. */
+
+            .btn:hover {
+                color: white;
+                background-color: black;
+            }
+
+    </style>
+</head>
+<body>
+
+    <h1>CSS Seçici Alıştırmaları</h1>
+    <p>Aşağıdaki görevleri style etiketi içinde tamamlayarak stilleri uygula.</p>
+
+    <section>
+        <h2>1. Element Seçici</h2>
+        <p>Bu bir paragraftır. Görev 1 başarılıysa rengi gri olmalı.</p>
+        <p>Bu da başka bir paragraftır.</p>
+    </section>
+
+    <section>
+        <h2>2. Class Seçici</h2>
+        <p>Bu normal bir metin.</p>
+        <p class="uyari">DİKKAT! Bu metin class="uyari" taşır. Arka planı sarı olmalı.</p>
+        <p>Bu tekrar normal bir metin.</p>
+        <div class="uyari">Bu div de uyarı sınıfına sahip, bu da sarı olmalı.</div>
+    </section>
+
+    <section>
+        <h2>3. ID Seçici</h2>
+        <div id="ozel-kutu">
+            Bu kutunun ID'si "ozel-kutu". Etrafında mavi bir çerçeve olmalı.
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Descendant (Torun) Seçici</h2>
+        <div class="konteyner">
+            Metin içinde <span>bu kısım (span)</span> kalın olmalı.
+        </div>
+        <br>
+        Normal metin içinde <span>bu kısım (span)</span> normal kalmalı, çünkü konteyner içinde değil.
+    </section>
+
+    <section>
+        <h2>5. Attribute Seçici</h2>
+        <input type="text" placeholder="Kullanıcı Adı (Normal kalacak)"><br><br>
+        <input type="password" placeholder="Şifre (Mavi olacak)">
+    </section>
+
+    <section>
+        <h2>6. Hover Efekti</h2>
+        <button class="btn" style="padding: 10px 20px; border: 1px solid #333; cursor: pointer;">
+            Üzerime Gel!
+        </button>
+    </section>
+
+</body>
+</html>
