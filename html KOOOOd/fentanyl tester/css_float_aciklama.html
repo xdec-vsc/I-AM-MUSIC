@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float ve Clear Rehberi</title>
+    <style>
+        /* --- TEMEL TASARIM (Önceki Dosya ile Aynı) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 6px solid #f5576c;
+        }
+
+        .intro h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: "⚓";
+            margin-right: 15px;
+            font-size: 0.8em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        .property-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .css-property { color: #68d391; }
+        .css-value { color: #fbb6ce; }
+
+        .visual-demo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #e2e8f0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .tip {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .tip strong { color: #48bb78; }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .note strong { color: #f56565; }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* --- FLOAT VE CLEAR ÖZEL DEMO STİLLERİ --- */
+        
+        /* Float Kutuları */
+        .float-box {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        
+        .f-left { float: left; background: #48bb78; border: 3px solid #2f855a; }
+        .f-right { float: right; background: #4299e1; border: 3px solid #2b6cb0; }
+        
+        /* Metin Sarma Örneği */
+        .text-wrap-container {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Clear Kutuları */
+        .clear-demo-wrapper div {
+            padding: 10px;
+            margin: 5px;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .c-box-1 { float: left; width: 30%; background: #ed64a6; height: 60px; }
+        .c-box-2 { float: left; width: 30%; background: #9f7aea; height: 60px; }
+        
+        .no-clear { background: #e53e3e; color: white; margin-top: 5px; opacity: 0.8;}
+        .with-clear { clear: both; background: #38a169; margin-top: 5px; }
+
+        /* Clearfix Demo */
+        .parent-box {
+            border: 5px solid #2d3748;
+            background: #e2e8f0;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        
+        .parent-box::after {
+            /* Clearfix Hack */
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .broken-parent {
+            border: 5px solid #c53030;
+            background: #fff5f5;
+            padding: 0; /* Padding yok ki çökme belli olsun */
+            /* Height vermiyoruz, float yüzünden çökecek */
+        }
+        
+        /* Broken parent görselleştirmesi için min-height vermiyoruz */
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Float ve Clear</h1>
+            <p>Konumlandırma, Metin Sarma ve Akış Temizleme</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Akışı Kontrol Etmek</h2>
+                <p>CSS'te <strong>float</strong> özelliği, bir elementi sayfanın normal akışından çıkararak sola veya sağa yaslanmasını sağlar. <strong>Clear</strong> özelliği ise float edilmiş elementlerin etkisinden kurtulmak ve düzeni normale döndürmek için kullanılır. Modern layoutlarda (Flexbox/Grid) kullanımı azalsa da, metinlerin resimlerin etrafını sarması gibi durumlarda hala vazgeçilmezdir.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>1. Float (Yüzdürme)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Float Nedir?</h3>
+                    <p>Bir elementi sola veya sağa yaslar. Kendisinden sonra gelen içerik (örneğin metin), float edilen elementin etrafını sarar.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">float</span>: <span class="css-value">left</span>; <span style="color:#aaa">/* Sola yasla */</span><br>
+                        <span class="css-property">float</span>: <span class="css-value">right</span>; <span style="color:#aaa">/* Sağa yasla */</span><br>
+                        <span class="css-property">float</span>: <span class="css-value">none</span>; <span style="color:#aaa">/* Varsayılan */</span>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Örnek 1: float: left;</div>
+                        <div class="text-wrap-container">
+                            <div class="float-box f-left">SOL</div>
+                            <p>
+                                Bu paragraftaki kutu <strong>float: left</strong> özelliğine sahiptir. Gördüğünüz gibi metin kutunun sağından akarak devam eder. Bu özellik gazetelerdeki resim düzenine benzer. Metin kutunun boyutu bittiğinde normal şekilde altına geçerek devam eder.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Örnek 2: float: right;</div>
+                        <div class="text-wrap-container">
+                            <div class="float-box f-right">SAĞ</div>
+                            <p>
+                                Bu paragraftaki kutu <strong>float: right</strong> özelliğine sahiptir. Kutu sağa yapışır ve metin sol taraftan akmaya başlar. Float özelliği blok elementleri (div gibi) yan yana dizmek için eskiden çok sık kullanılırdı.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>2. Clear (Temizleme)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Clear Nedir?</h3>
+                    <p>Float edilen bir elementten sonra gelen elementin, onun yanına gelmesini engeller ve bir alt satıra geçmesini sağlar.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">clear</span>: <span class="css-value">left</span>; <span style="color:#aaa">/* Sol float etkisini temizle */</span><br>
+                        <span class="css-property">clear</span>: <span class="css-value">right</span>; <span style="color:#aaa">/* Sağ float etkisini temizle */</span><br>
+                        <span class="css-property">clear</span>: <span class="css-value">both</span>; <span style="color:#aaa">/* Her iki yönü de temizle (Önerilen) */</span>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Clear Kullanılmadığında:</div>
+                        <div class="clear-demo-wrapper" style="background: #edf2f7; padding: 10px; overflow: hidden; margin-bottom: 20px;">
+                            <div class="c-box-1">Kutu 1 (Float Left)</div>
+                            <div class="c-box-2">Kutu 2 (Float Left)</div>
+                            <div class="no-clear">Kutu 3 (Normal)<br>Float'ın yanına sıkışır!</div>
+                        </div>
+
+                        <div class="demo-title">Clear: Both Kullanıldığında:</div>
+                        <div class="clear-demo-wrapper" style="background: #edf2f7; padding: 10px; overflow: hidden;">
+                            <div class="c-box-1">Kutu 1 (Float Left)</div>
+                            <div class="c-box-2">Kutu 2 (Float Left)</div>
+                            <div class="with-clear">Kutu 3 (Clear: Both)<br>Temizlendi, aşağı indi!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>3. Clearfix (Kapsayıcı Sorunu)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Kapsayıcı Çökmesi (Parent Collapse)</h3>
+                    <p>Bir kutunun içindeki <strong>tüm elemanlar float edilirse</strong>, kapsayıcı kutu (parent) yükseklik değerini kaybeder ve "çöker". Sanki içi boşmuş gibi görünür.</p>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Sorunlu Durum (Kırmızı Çerçeveye Dikkat):</div>
+                        <p style="margin-bottom: 5px; font-size: 0.9em;">Kırmızı kutu parent elementtir. İçindekiler float olduğu için yüksekliği 0 olmuştur.</p>
+                        <div class="broken-parent">
+                            <div class="float-box f-left" style="margin: 0;">Float</div>
+                            <div class="float-box f-right" style="margin: 0;">Float</div>
+                        </div>
+                        <p style="margin-top: 5px; font-size: 0.9em;">(Kutular dışarı taşıyor çünkü parent onları kapsamıyor)</p>
+                    </div>
+
+                    <div class="note">
+                        <strong>Çözüm: Clearfix Hack</strong><br>
+                        Bu sorunu çözmek için kapsayıcı elemente CSS ile sanal bir son eleman eklenir ve temizlenir.
+                    </div>
+
+                    <div class="code-block">
+                        <span style="color:#aaa">/* Modern Clearfix Yöntemi */</span><br>
+                        <span class="css-property">.clearfix::after</span> {<br>
+                        &nbsp;&nbsp;<span class="css-property">content</span>: <span class="css-value">""</span>;<br>
+                        &nbsp;&nbsp;<span class="css-property">display</span>: <span class="css-value">table</span>;<br>
+                        &nbsp;&nbsp;<span class="css-property">clear</span>: <span class="css-value">both</span>;<br>
+                        }
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Düzeltilmiş Durum (Koyu Çerçeve):</div>
+                        <p style="margin-bottom: 5px; font-size: 0.9em;">Clearfix uygulandığı için parent, çocuklarını kapsıyor.</p>
+                        <div class="parent-box">
+                            <div class="float-box f-left">Float</div>
+                            <div class="float-box f-right">Float</div>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Modern CSS'te <code>display: flow-root;</code> özelliği de clearfix yerine kullanılabilir ve aynı işi tek satırda yapar.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>CSS Float & Clear Rehberi &copy; PMTAL</p>
+        </footer>
+    </div>
+</body>
+
+</html>

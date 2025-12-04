@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Responsive Tasarım Rehberi</title>
+    <style>
+        /* --- TEMEL TASARIM (Önceki Dosya ile Aynı) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 6px solid #f5576c;
+        }
+
+        .intro h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: "📱";
+            margin-right: 15px;
+            font-size: 0.8em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        .property-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .css-property { color: #68d391; }
+        .css-value { color: #fbb6ce; }
+
+        .visual-demo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #e2e8f0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .tip {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .tip strong { color: #48bb78; }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .note strong { color: #f56565; }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* --- RESPONSIVE KONUSUNA ÖZEL STİLLER --- */
+        
+        /* 1. Gerçek Zamanlı Responsive Test Kutusu */
+        .responsive-test-box {
+            background-color: #4299e1; /* Masaüstü Rengi (Mavi) */
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .responsive-test-box::after {
+            content: "Şu an: Geniş Ekran (Desktop)";
+        }
+
+        /* MEDIA QUERY: Ekran 768px'den küçükse */
+        @media (max-width: 768px) {
+            .responsive-test-box {
+                background-color: #f56565; /* Mobil Rengi (Kırmızı) */
+            }
+            .responsive-test-box::after {
+                content: "Şu an: Dar Ekran (Tablet/Mobil)";
+            }
+        }
+
+        /* 2. Responsive Resim Demosu */
+        .img-container-fixed {
+            width: 100%;
+            height: 150px;
+            background: #cbd5e0;
+            border: 2px dashed #a0aec0;
+            overflow: hidden; /* Resim taşarsa gizle */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .fake-img {
+            width: 600px; /* Kapsayıcıdan daha geniş bir resim */
+            height: 150px;
+            background: repeating-linear-gradient(45deg, #ed64a6, #ed64a6 10px, #d53f8c 10px, #d53f8c 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 3. Grid/Flex Demo */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap; /* Sığmazsa aşağı at */
+            gap: 10px;
+        }
+        
+        .flex-item {
+            flex: 1 1 200px; /* Büyü, küçül, min 200px ol */
+            background: #9f7aea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Responsive Tasarım</h1>
+            <p>Her Cihaza Uyum Sağlayan Web Siteleri</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Neden Responsive?</h2>
+                <p>Responsive (Duyarlı) tasarım, web sitelerinin masaüstü bilgisayarlarda, tabletlerde ve cep telefonlarında düzgün görünmesini sağlar. Sabit pikseller yerine esnek yapılar ve <strong>Medya Sorguları (Media Queries)</strong> kullanılarak yapılır.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>1. Viewport Meta Etiketi</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Temel Ayar</h3>
+                    <p>Responsive tasarımın çalışması için <code>&lt;head&gt;</code> kısmına mutlaka aşağıdaki viewport meta etiketi eklenmelidir. Bu, mobil tarayıcının sayfayı küçültüp (zoom-out yapıp) göstermesini engeller.</p>
+
+                    <div class="code-block" style="white-space: pre-wrap;">
+&lt;<span class="css-property">meta</span> name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    </div>
+
+                    <div class="note">
+                        <strong>⚠️ Önemli:</strong> Bu satır olmazsa, yazdığınız responsive kodlar mobil cihazlarda düzgün çalışmayacaktır.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>2. Media Queries (@media)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Kırılma Noktaları (Breakpoints)</h3>
+                    <p>CSS'te <code>@media</code> kuralı, "Eğer ekran genişliği şu kadarsa, bu stili uygula" dememizi sağlar.</p>
+
+                    <div class="code-block">
+                        <span style="color:#aaa">/* Varsayılan: Masaüstü stili */</span><br>
+                        <span class="css-property">div</span> { <span class="css-property">background-color</span>: <span class="css-value">blue</span>; }<br><br>
+
+                        <span style="color:#aaa">/* Ekran 768px veya daha küçükse: */</span><br>
+                        <span class="css-property">@media</span> (max-width: 768px) {<br>
+                        &nbsp;&nbsp;<span class="css-property">div</span> { <span class="css-property">background-color</span>: <span class="css-value">red</span>; }<br>
+                        }
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Canlı Test (Pencereyi Daraltın!)</div>
+                        <p style="margin-bottom:10px;">Aşağıdaki kutu, tarayıcı penceresini daralttığınızda renk ve yazı değiştirecektir.</p>
+                        
+                        <div class="responsive-test-box">
+                            </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Genellikle <strong>Mobile First</strong> (Önce Mobil) yaklaşımı kullanılır. Yani önce mobil kodları yazılır, sonra <code>min-width</code> kullanılarak masaüstü için genişletilir.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>3. Esnek Görseller (Fluid Images)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>max-width: 100%</h3>
+                    <p>Büyük resimlerin küçük ekranlardan taşmasını engellemek için resimlere esneklik kazandırmalıyız.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">img</span> {<br>
+                        &nbsp;&nbsp;<span class="css-property">max-width</span>: <span class="css-value">100%</span>;<br>
+                        &nbsp;&nbsp;<span class="css-property">height</span>: <span class="css-value">auto</span>;<br>
+                        }
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Responsive Olmayan Resim:</div>
+                        <p style="font-size:0.9em; margin-bottom:5px;">Resim kapsayıcıdan taşar (Scrolbar çıkarır veya kesilir).</p>
+                        <div class="img-container-fixed">
+                            <div class="fake-img">600px Genişliğinde Sabit Resim</div>
+                        </div>
+
+                        <div class="demo-title" style="margin-top:20px;">Responsive Resim:</div>
+                        <p style="font-size:0.9em; margin-bottom:5px;">Resim kapsayıcıya sığacak şekilde küçülür.</p>
+                        <div class="img-container-fixed">
+                            <div class="fake-img img-responsive">max-width: 100% uygulandı</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>4. Esnek Düzen (Flex Wrap)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Kutuların Alt Alta Geçmesi</h3>
+                    <p>Modern responsive tasarımda yüzdelerle uğraşmak yerine Flexbox veya Grid kullanılır. <code>flex-wrap: wrap;</code> özelliği, kutular sığmadığında otomatik olarak alt satıra geçmelerini sağlar.</p>
+
+                    <div class="visual-demo">
+                        <div class="flex-container">
+                            <div class="flex-item">Kutu 1</div>
+                            <div class="flex-item">Kutu 2</div>
+                            <div class="flex-item">Kutu 3</div>
+                            <div class="flex-item">Kutu 4</div>
+                        </div>
+                        <p style="margin-top:10px; font-size:0.9em; color:#666;">
+                            * Yukarıdaki kutular geniş ekranda yan yana, dar ekranda alt alta dizilecektir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>CSS Responsive Tasarım Rehberi &copy; PMTAL</p>
+        </footer>
+    </div>
+</body>
+
+</html>

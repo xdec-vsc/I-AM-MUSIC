@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display ve Position Rehberi</title>
+    <style>
+        /* --- TEMEL TASARIM (Önceki Dosya ile Aynı) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 6px solid #f5576c;
+        }
+
+        .intro h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: "❐";
+            margin-right: 15px;
+            font-size: 0.8em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        .property-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .css-property { color: #68d391; }
+        .css-value { color: #fbb6ce; }
+
+        .visual-demo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #e2e8f0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .tip {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .tip strong { color: #48bb78; }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .note strong { color: #f56565; }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .comparison-table th { background: #667eea; color: white; padding: 15px; text-align: left; }
+        .comparison-table td { padding: 15px; border-bottom: 1px solid #e2e8f0; }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* --- BU SAYFA İÇİN ÖZEL DEMO SINIFLARI --- */
+        
+        /* Display Demo Kutuları */
+        .demo-box {
+            padding: 10px;
+            margin: 5px;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .bg-blue { background: #4299e1; border: 2px solid #2b6cb0; }
+        .bg-green { background: #48bb78; border: 2px solid #2f855a; }
+        .bg-purple { background: #9f7aea; border: 2px solid #6b46c1; }
+        .bg-red { background: #f56565; border: 2px solid #c53030; }
+
+        /* Display Types */
+        .d-block { display: block; width: 100%; }
+        .d-inline { display: inline; }
+        .d-inline-block { display: inline-block; width: 100px; height: 60px; line-height: 40px; }
+        .d-none { display: none; }
+
+        /* Position Container */
+        .pos-container {
+            background: #edf2f7;
+            height: 200px;
+            border: 2px dashed #cbd5e0;
+            position: relative; /* Absolute için referans noktası */
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Position Types */
+        .pos-box {
+            width: 100px; 
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            background: rgba(66, 153, 225, 0.9);
+            border: 2px solid #2b6cb0;
+        }
+
+        .relative-demo-wrapper { display: flex; gap: 10px; }
+        .pos-relative { 
+            position: relative; 
+            top: 20px; 
+            left: 20px; 
+            background: #ed64a6; 
+            border-color: #b83280;
+            z-index: 10;
+        }
+
+        .pos-absolute {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #48bb78;
+            border-color: #2f855a;
+        }
+
+        /* Sticky/Fixed Simülasyonu */
+        .scroll-container {
+            height: 200px;
+            overflow-y: scroll;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            position: relative;
+            padding: 10px;
+        }
+        .long-content { height: 600px; background: linear-gradient(to bottom, #f7fafc, #cbd5e0); }
+        .pos-sticky {
+            position: sticky;
+            top: 0;
+            background: #9f7aea;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Layout Temelleri</h1>
+            <p>Display (Görünüm) ve Position (Konumlandırma)</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Sayfa Düzeni Nasıl Çalışır?</h2>
+                <p>HTML elementlerinin sayfada nasıl yer kaplayacağını ve nerede duracağını belirleyen en temel iki özellik <strong>display</strong> ve <strong>position</strong>'dır. Bu özellikleri anlamak, elemanları yan yana dizmek veya sayfanın belirli bir köşesine sabitlemek için gereklidir.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>1. Display Özelliği</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Display Nedir?</h3>
+                    <p>Bir elementin satır içinde mi yoksa bir blok olarak mı davranacağını belirler.</p>
+
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Değer</th>
+                            <th>Davranış</th>
+                        </tr>
+                        <tr>
+                            <td><strong>block</strong></td>
+                            <td>Tüm satırı kaplar, alt satıra geçer. Width/Height verilebilir.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>inline</strong></td>
+                            <td>Sadece içeriği kadar yer kaplar. Yan yana dizilir. Width/Height <u>verilemez</u>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>inline-block</strong></td>
+                            <td>Yan yana dizilir (inline gibi) ama boyut verilebilir (block gibi).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>none</strong></td>
+                            <td>Elementi tamamen yok eder (yer kaplamaz).</td>
+                        </tr>
+                    </table>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">display: block</div>
+                        <p style="margin-bottom:10px;">Her element yeni bir satırda başlar ve tüm genişliği kaplar.</p>
+                        <div class="demo-box bg-blue d-block">Div 1 (Block)</div>
+                        <div class="demo-box bg-blue d-block">Div 2 (Block)</div>
+                        <div class="demo-box bg-blue d-block">Div 3 (Block)</div>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">display: inline</div>
+                        <p style="margin-bottom:10px;">Elementler yan yana dizilir, boyut verilemez.</p>
+                        <div style="background:#edf2f7; padding:10px;">
+                            Metin satırı başlangıcı. 
+                            <div class="demo-box bg-green d-inline">Span 1</div>
+                            <div class="demo-box bg-green d-inline">Span 2</div>
+                            metin devam ediyor.
+                        </div>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">display: inline-block</div>
+                        <p style="margin-bottom:10px;">Hem yan yana gelirler hem de boyutlandırılabilirler.</p>
+                        <div class="demo-box bg-purple d-inline-block">Kutu 1</div>
+                        <div class="demo-box bg-purple d-inline-block">Kutu 2</div>
+                        <div class="demo-box bg-purple d-inline-block">Kutu 3</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Modern tasarımlarda elemanları hizalamak için genellikle <code>display: flex;</code> veya <code>display: grid;</code> kullanılır. Bunlar daha gelişmiş layout sistemleridir.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>2. Position Özelliği</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Position Nedir?</h3>
+                    <p>Elementin normal akış dışına çıkarılıp belirli koordinatlara (top, right, bottom, left) göre yerleştirilmesini sağlar.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">position</span>: <span class="css-value">relative</span>;<br>
+                        <span class="css-property">top</span>: <span class="css-value">20px</span>;<br>
+                        <span class="css-property">left</span>: <span class="css-value">50px</span>;
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">position: relative (Göreceli)</div>
+                        <p>Element normal yerinden itilir, ancak <strong>eski yeri boş kalır (yer kaplamaya devam eder)</strong>.</p>
+                        <div class="relative-demo-wrapper" style="margin-top:20px;">
+                            <div class="demo-box bg-blue" style="width:100px; height:100px;">Normal</div>
+                            <div class="demo-box pos-relative" style="width:100px; height:100px;">Relative<br>(Top:20 Left:20)</div>
+                            <div class="demo-box bg-blue" style="width:100px; height:100px;">Normal</div>
+                        </div>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">position: absolute (Mutlak)</div>
+                        <p>Element normal akıştan tamamen çıkar. En yakın <code>position: relative</code> olan kapsayıcıya göre konumlanır.</p>
+                        
+                        <div class="pos-container">
+                            <span style="position:absolute; top:5px; left:5px; color:#718096;">Kapsayıcı (position: relative)</span>
+                            
+                            <div class="pos-absolute">Absolute<br>(Top:20 Right:20)</div>
+                            
+                            <div style="position: absolute; bottom: 20px; left: 20px; width: 100px; height: 60px; background: #9f7aea; border: 2px solid #6b46c1; color:white; text-align:center; border-radius:5px; padding:10px;">
+                                Bottom:20<br>Left:20
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">position: sticky (Yapışkan)</div>
+                        <p>Kaydırma sırasında belirli bir noktaya gelinceye kadar normal davranır, o noktada sabitlenir.</p>
+                        <div class="scroll-container">
+                            <p>Kaydırın...</p>
+                            <div class="pos-sticky">Ben STICKY bir başlığım! (Top: 0)</div>
+                            <div class="long-content">
+                                <p style="padding: 20px;">
+                                    İçerik aşağı doğru devam ediyor...<br><br>
+                                    Sticky eleman yukarıya yapışacak.<br><br>
+                                    Kaydırmaya devam edin...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note">
+                        <strong>⚠️ Z-Index:</strong> Position değeri verilen elementler üst üste binebilir. Hangisinin en üstte görüneceğini belirlemek için <code>z-index</code> kullanılır. Değeri yüksek olan (örn: 999) en üstte durur.
+                    </div>
+
+                    <div class="code-block">
+                        <span class="css-property">z-index</span>: <span class="css-value">10</span>; <span style="color: #a0aec0;">/* Altta */</span><br>
+                        <span class="css-property">z-index</span>: <span class="css-value">100</span>; <span style="color: #a0aec0;">/* Üstte */</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>3. Görünürlük (Visibility vs Display)</h2>
+                </div>
+                <div class="property-card">
+                    <h3>display: none; vs visibility: hidden;</h3>
+                    <p>İkisi de elementi gizler ama önemli bir fark vardır:</p>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Kod</th>
+                            <th>Sonuç</th>
+                        </tr>
+                        <tr>
+                            <td><code>display: none;</code></td>
+                            <td>Element tamamen silinmiş gibi davranır. Yer kaplamaz.</td>
+                        </tr>
+                        <tr>
+                            <td><code>visibility: hidden;</code></td>
+                            <td>Element görünmez olur ama <strong>yer kaplamaya devam eder</strong> (Hayalet gibi).</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>CSS Layout Rehberi &copy; PMTAL</p>
+        </footer>
+    </div>
+</body>
+
+</html>

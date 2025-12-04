@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Metin ve Yazı Tipi Özellikleri</title>
+    <style>
+        /* --- TEMEL TASARIM (Önceki Dosya ile Aynı) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 6px solid #f5576c;
+        }
+
+        .intro h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: "T";
+            margin-right: 15px;
+            font-size: 0.8em;
+            font-family: serif;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 18px;
+            border-radius: 5px;
+        }
+
+        .property-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .css-property { color: #68d391; }
+        .css-value { color: #fbb6ce; }
+
+        .visual-demo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #e2e8f0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .tip {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .tip strong { color: #48bb78; }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .note strong { color: #f56565; }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* --- ÖZEL DEMO SINIFLARI --- */
+
+        /* 1. Font Family & Size */
+        .demo-serif { font-family: 'Times New Roman', serif; }
+        .demo-sans { font-family: Arial, sans-serif; }
+        .demo-mono { font-family: 'Courier New', monospace; }
+        
+        .size-small { font-size: 12px; }
+        .size-normal { font-size: 16px; }
+        .size-large { font-size: 24px; }
+        .size-huge { font-size: 32px; }
+
+        /* 2. Weight & Style */
+        .w-light { font-weight: 300; }
+        .w-normal { font-weight: 400; }
+        .w-bold { font-weight: 700; }
+        .style-italic { font-style: italic; }
+        .style-oblique { font-style: oblique; }
+
+        /* 3. Text Decoration & Transform */
+        .deco-none { text-decoration: none; color: blue; }
+        .deco-underline { text-decoration: underline; }
+        .deco-line-through { text-decoration: line-through; }
+        .deco-overline { text-decoration: overline; }
+        
+        .trans-upper { text-transform: uppercase; }
+        .trans-lower { text-transform: lowercase; }
+        .trans-cap { text-transform: capitalize; }
+
+        /* 4. Spacing & Align */
+        .align-left { text-align: left; background: #e6f7ff; padding: 5px; margin: 5px 0;}
+        .align-center { text-align: center; background: #f0e6ff; padding: 5px; margin: 5px 0;}
+        .align-right { text-align: right; background: #ffe6f0; padding: 5px; margin: 5px 0;}
+        
+        .lh-small { line-height: 1; background: #edf2f7; padding: 10px; margin-bottom: 10px; }
+        .lh-normal { line-height: 1.5; background: #edf2f7; padding: 10px; margin-bottom: 10px; }
+        .lh-large { line-height: 2.5; background: #edf2f7; padding: 10px; margin-bottom: 10px; }
+        
+        .ls-small { letter-spacing: -1px; }
+        .ls-normal { letter-spacing: normal; }
+        .ls-large { letter-spacing: 5px; }
+
+        /* 5. Text Shadow */
+        .shadow-basic { text-shadow: 2px 2px 4px #999; font-size: 24px; font-weight: bold; }
+        .shadow-glow { text-shadow: 0 0 10px #f56565; color: #c53030; font-size: 24px; font-weight: bold; }
+        .shadow-neon { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #667eea; color: white; background: #333; padding: 10px; display: inline-block; font-size: 20px;}
+
+        /* 6. List Style Type */
+        .list-container ul, .list-container ol { margin-left: 20px; margin-bottom: 15px; }
+        .list-disc { list-style-type: disc; }
+        .list-circle { list-style-type: circle; }
+        .list-square { list-style-type: square; }
+        .list-decimal { list-style-type: decimal; }
+        .list-roman { list-style-type: upper-roman; }
+        .list-none { list-style-type: none; }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Metin Özellikleri</h1>
+            <p>Fontlar, Metin Biçimlendirme ve Listeler</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Tipografi Dünyası</h2>
+                <p>Web sayfalarındaki içeriğin %90'ından fazlası metindir. CSS ile metinlerin yazı tipini (font),
+                    büyüklüğünü, hizalamasını, gölgelendirmesini ve daha birçok özelliğini kontrol edebiliriz. Aşağıda
+                    en sık kullanılan özellikler listelenmiştir.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>1. Font Ailesi ve Boyutu</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>font-family (Yazı Tipi)</h3>
+                    <p>Metnin hangi yazı karakteriyle gösterileceğini belirler. Tırnaklı (serif), tırnaksız (sans-serif) ve
+                        sabit genişlikli (monospace) temel ailelerdir.</p>
+                    <div class="code-block">
+                        <span class="css-property">font-family</span>: <span class="css-value">"Times New Roman", serif</span>;<br>
+                        <span class="css-property">font-family</span>: <span class="css-value">Arial, Helvetica, sans-serif</span>;<br>
+                        <span class="css-property">font-family</span>: <span class="css-value">"Courier New", monospace</span>;
+                    </div>
+                    <div class="visual-demo">
+                        <div class="demo-serif">Serif Font (Örn: Times New Roman) - Resmi belgelerde sık kullanılır.</div>
+                        <div class="demo-sans" style="margin-top:10px;">Sans-serif Font (Örn: Arial) - Dijital ekranlarda okuması kolaydır.</div>
+                        <div class="demo-mono" style="margin-top:10px;">Monospace Font (Örn: Courier) - Kod yazımında kullanılır.</div>
+                    </div>
+
+                    <h3>font-size (Yazı Boyutu)</h3>
+                    <p>Yazının büyüklüğünü belirler. <code>px</code> (piksel), <code>em</code>, <code>rem</code> veya <code>%</code> kullanılabilir.</p>
+                    <div class="visual-demo">
+                        <div class="size-small">font-size: 12px; (Küçük Metin)</div>
+                        <div class="size-normal">font-size: 16px; (Varsayılan Gövde Metni)</div>
+                        <div class="size-large">font-size: 24px; (Başlık Boyutu)</div>
+                        <div class="size-huge">font-size: 32px; (Büyük Başlık)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>2. Stil ve Kalınlık</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>font-weight (Kalınlık)</h3>
+                    <p>Yazının ne kadar kalın veya ince olacağını belirler. 100-900 arası sayısal değer veya <code>bold</code>, <code>normal</code> kelimeleri kullanılır.</p>
+                    <div class="code-block">
+                        <span class="css-property">font-weight</span>: <span class="css-value">normal</span>; <span style="color:#aaa">/* 400 */</span><br>
+                        <span class="css-property">font-weight</span>: <span class="css-value">bold</span>; <span style="color:#aaa">/* 700 */</span>
+                    </div>
+                    <div class="visual-demo">
+                        <div class="w-light">font-weight: 300 (İnce)</div>
+                        <div class="w-normal">font-weight: 400 (Normal)</div>
+                        <div class="w-bold">font-weight: 700 (Kalın / Bold)</div>
+                    </div>
+
+                    <h3>font-style (Yazı Stili)</h3>
+                    <p>Genellikle metni italik (eğik) yapmak için kullanılır.</p>
+                    <div class="visual-demo">
+                        <div style="font-style: normal;">font-style: normal (Düz)</div>
+                        <div class="style-italic">font-style: italic (Eğik yazı tipi)</div>
+                        <div class="style-oblique">font-style: oblique (Yatırılmış yazı)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>3. Metin Hizalama ve Boşluklar</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>text-align (Hizalama)</h3>
+                    <p>Metnin yatayda nasıl hizalanacağını belirler.</p>
+                    <div class="visual-demo">
+                        <div class="align-left">text-align: left; (Sola dayalı)</div>
+                        <div class="align-center">text-align: center; (Ortalı)</div>
+                        <div class="align-right">text-align: right; (Sağa dayalı)</div>
+                    </div>
+
+                    <h3>line-height (Satır Yüksekliği)</h3>
+                    <p>Satırlar arasındaki dikey boşluğu ayarlar. Okunabilirlik için çok önemlidir.</p>
+                    <div class="visual-demo">
+                        <div class="lh-small">
+                            <strong>line-height: 1;</strong><br>
+                            Bu metin satırları birbirine çok yakındır. Okuması zor olabilir çünkü satırlar iç içe geçmiş gibi durur.
+                        </div>
+                        <div class="lh-normal">
+                            <strong>line-height: 1.5;</strong><br>
+                            Bu ideal bir satır yüksekliğidir. Satırlar arasında yeterli boşluk vardır ve gözü yormaz.
+                        </div>
+                    </div>
+
+                    <h3>letter-spacing (Harf Aralığı)</h3>
+                    <p>Harfler arasındaki boşluğu ayarlar.</p>
+                    <div class="visual-demo">
+                        <div class="ls-small">letter-spacing: -1px; (Sıkışık)</div>
+                        <div class="ls-normal">letter-spacing: normal; (Normal)</div>
+                        <div class="ls-large">letter-spacing: 5px; (G e n i ş)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>4. Dekorasyon ve Dönüştürme</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>text-decoration (Dekorasyon)</h3>
+                    <p>Altı çizili, üstü çizili gibi çizgiler ekler. Linklerdeki alt çizgiyi kaldırmak için de kullanılır.</p>
+                    <div class="code-block">
+                        <span class="css-property">text-decoration</span>: <span class="css-value">underline</span>;
+                    </div>
+                    <div class="visual-demo">
+                        <div class="deco-underline">text-decoration: underline (Altı Çizili)</div>
+                        <div class="deco-line-through">text-decoration: line-through (Üstü Çizili)</div>
+                        <div class="deco-overline">text-decoration: overline (Tepesi Çizili)</div>
+                        <div><a href="#" class="deco-none">text-decoration: none (Link çizgisi yok)</a></div>
+                    </div>
+
+                    <h3>text-transform (Büyük/Küçük Harf)</h3>
+                    <p>Metnin içeriğini değiştirmeden görünümünü büyük veya küçük harfe çevirir.</p>
+                    <div class="visual-demo">
+                        <div class="trans-upper">uppercase (tüm harfler büyük)</div>
+                        <div class="trans-lower">LOWERCASE (TÜM HARFLER KÜÇÜK)</div>
+                        <div class="trans-cap">capitalize (her kelimenin baş harfi büyük)</div>
+                    </div>
+
+                    <h3>text-shadow (Metin Gölgesi)</h3>
+                    <p>Metne gölge efekti verir. Parametreler: <i>yatay-konum dikey-konum bulanıklık renk</i>.</p>
+                    <div class="code-block">
+                        <span class="css-property">text-shadow</span>: <span class="css-value">2px 2px 4px #000000</span>;
+                    </div>
+                    <div class="visual-demo" style="text-align: center;">
+                        <div class="shadow-basic">Basit Gölge</div>
+                        <br>
+                        <div class="shadow-glow">Parlayan Gölge (Glow)</div>
+                        <br>
+                        <div class="shadow-neon">Neon Efekt</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2>5. Liste Stilleri</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>list-style-type</h3>
+                    <p><code>&lt;ul&gt;</code> ve <code>&lt;ol&gt;</code> etiketlerindeki madde işaretlerini (bullet points) değiştirir.</p>
+                    
+                    <div class="code-block">
+                        <span class="css-property">list-style-type</span>: <span class="css-value">circle</span>;
+                    </div>
+
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Değer</th>
+                            <th>Açıklama</th>
+                            <th>Örnek Görünüm</th>
+                        </tr>
+                        <tr>
+                            <td><strong>disc</strong></td>
+                            <td>Dolu daire (Varsayılan)</td>
+                            <td><ul class="list-disc" style="margin:0; padding-left:20px;"><li>Öğe 1</li></ul></td>
+                        </tr>
+                        <tr>
+                            <td><strong>circle</strong></td>
+                            <td>Boş daire</td>
+                            <td><ul class="list-circle" style="margin:0; padding-left:20px;"><li>Öğe 1</li></ul></td>
+                        </tr>
+                        <tr>
+                            <td><strong>square</strong></td>
+                            <td>Kare</td>
+                            <td><ul class="list-square" style="margin:0; padding-left:20px;"><li>Öğe 1</li></ul></td>
+                        </tr>
+                        <tr>
+                            <td><strong>decimal</strong></td>
+                            <td>Sayılar (1, 2, 3)</td>
+                            <td><ol class="list-decimal" style="margin:0; padding-left:20px;"><li>Öğe 1</li></ol></td>
+                        </tr>
+                        <tr>
+                            <td><strong>none</strong></td>
+                            <td>İşaret yok</td>
+                            <td><ul class="list-none" style="margin:0; padding-left:20px;"><li>Öğe 1</li></ul></td>
+                        </tr>
+                    </table>
+                    
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Web sitelerindeki navigasyon menüleri genellikle <code>&lt;ul&gt;</code> ile yapılır ve yanındaki noktaları kaldırmak için <code>list-style-type: none;</code> kullanılır.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>CSS Özellikleri Rehberi &copy; PMTAL</p>
+        </footer>
+    </div>
+</body>
+
+</html>

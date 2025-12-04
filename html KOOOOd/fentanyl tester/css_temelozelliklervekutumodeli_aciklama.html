@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Temel Özellikler Rehberi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 6px solid #f5576c;
+        }
+
+        .intro h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: "◆";
+            margin-right: 15px;
+            font-size: 0.8em;
+        }
+
+        .property-card {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .css-property {
+            color: #68d391;
+        }
+
+        .css-value {
+            color: #fbb6ce;
+        }
+
+        .visual-demo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #e2e8f0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* BOX MODEL DİYAGRAMI */
+        .box-model-diagram {
+            background: #f7fafc;
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .box-model-visual {
+            display: inline-block;
+            background: #fef5e7;
+            padding: 30px;
+            border: 10px solid #f39c12;
+            position: relative;
+        }
+
+        .box-model-visual::before {
+            content: "MARGIN";
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #f39c12;
+            font-size: 0.9em;
+        }
+
+        .box-model-border {
+            background: #d5f4e6;
+            padding: 30px;
+            border: 8px solid #48bb78;
+            position: relative;
+        }
+
+        .box-model-border::before {
+            content: "BORDER";
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #48bb78;
+            font-size: 0.9em;
+        }
+
+        .box-model-padding {
+            background: #e6f2ff;
+            padding: 30px;
+            border: 8px solid #4299e1;
+            position: relative;
+        }
+
+        .box-model-padding::before {
+            content: "PADDING";
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #4299e1;
+            font-size: 0.9em;
+        }
+
+        .box-model-content {
+            background: #f3e8ff;
+            padding: 30px;
+            border: 8px solid #9f7aea;
+            font-weight: bold;
+            color: #9f7aea;
+            text-align: center;
+        }
+
+        /* MARGIN ÖRNEKLERİ */
+        .margin-demo-container {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .margin-example-1 {
+            background: #48bb78;
+            color: white;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .margin-example-2 {
+            background: #4299e1;
+            color: white;
+            padding: 15px;
+            margin: 10px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .margin-example-3 {
+            background: #9f7aea;
+            color: white;
+            padding: 15px;
+            margin: 5px 15px 25px 40px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* PADDING ÖRNEKLERİ */
+        .padding-example-1 {
+            background: #fbb6ce;
+            border: 3px solid #ed64a6;
+            padding: 5px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .padding-example-2 {
+            background: #c6f6d5;
+            border: 3px solid #48bb78;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .padding-example-3 {
+            background: #bee3f8;
+            border: 3px solid #4299e1;
+            padding: 30px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* BORDER ÖRNEKLERİ */
+        .border-example-1 {
+            border: 2px solid #e53e3e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .border-example-2 {
+            border: 5px dashed #4299e1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .border-example-3 {
+            border: 8px dotted #9f7aea;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .border-example-4 {
+            border: 4px double #48bb78;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .border-example-5 {
+            border-top: 3px solid #f56565;
+            border-right: 3px dashed #4299e1;
+            border-bottom: 3px dotted #48bb78;
+            border-left: 3px double #9f7aea;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* YAZI TİPİ ÖRNEKLERİ */
+        .font-size-example {
+            margin: 10px 0;
+        }
+
+        .size-12 {
+            font-size: 12px;
+        }
+
+        .size-16 {
+            font-size: 16px;
+        }
+
+        .size-24 {
+            font-size: 24px;
+        }
+
+        .size-32 {
+            font-size: 32px;
+        }
+
+        .font-family-serif {
+            font-family: Georgia, 'Times New Roman', serif;
+            padding: 10px;
+            background: #fef5e7;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .font-family-sans {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px;
+            background: #e8f4f8;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .font-family-mono {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            background: #f0e6f6;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .font-weight-100 {
+            font-weight: 100;
+        }
+
+        .font-weight-400 {
+            font-weight: 400;
+        }
+
+        .font-weight-700 {
+            font-weight: 700;
+        }
+
+        .font-weight-900 {
+            font-weight: 900;
+        }
+
+        .font-style-normal {
+            font-style: normal;
+        }
+
+        .font-style-italic {
+            font-style: italic;
+        }
+
+        .text-align-left {
+            text-align: left;
+            background: #e6f7ff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .text-align-center {
+            text-align: center;
+            background: #f0e6ff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .text-align-right {
+            text-align: right;
+            background: #ffe6f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .text-align-justify {
+            text-align: justify;
+            background: #e6ffe6;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .text-decoration-none {
+            text-decoration: none;
+            color: #4299e1;
+        }
+
+        .text-decoration-underline {
+            text-decoration: underline;
+        }
+
+        .text-decoration-overline {
+            text-decoration: overline;
+        }
+
+        .text-decoration-line-through {
+            text-decoration: line-through;
+        }
+
+        .text-transform-uppercase {
+            text-transform: uppercase;
+        }
+
+        .text-transform-lowercase {
+            text-transform: lowercase;
+        }
+
+        .text-transform-capitalize {
+            text-transform: capitalize;
+        }
+
+        .line-height-1 {
+            line-height: 1;
+            background: #fff5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .line-height-1-5 {
+            line-height: 1.5;
+            background: #f0fff4;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .line-height-2 {
+            line-height: 2;
+            background: #fffff0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .letter-spacing-normal {
+            letter-spacing: normal;
+        }
+
+        .letter-spacing-2 {
+            letter-spacing: 2px;
+        }
+
+        .letter-spacing-5 {
+            letter-spacing: 5px;
+        }
+
+        /* CONTENT ÖRNEKLERİ */
+        .content-example-1 {
+            width: 200px;
+            height: 100px;
+            background: #fbb6ce;
+            padding: 20px;
+            border: 5px solid #ed64a6;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .content-example-2 {
+            width: 300px;
+            height: 150px;
+            background: #bee3f8;
+            padding: 30px;
+            border: 8px solid #4299e1;
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: #f56565;
+            font-size: 1.1em;
+        }
+
+        .tip {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip strong {
+            color: #48bb78;
+            font-size: 1.1em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:hover {
+            background: #f7fafc;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Temel Özellikler</h1>
+            <p>Margin, Padding, Border, Content</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>CSS Box Model (Kutu Modeli)</h2>
+                <p>CSS'te her HTML elementi bir kutu olarak düşünülür. Bu kutu dört ana bölümden oluşur: <strong>Content
+                        (İçerik)</strong>, <strong>Padding (İç Boşluk)</strong>, <strong>Border (Kenarlık)</strong> ve
+                    <strong>Margin (Dış Boşluk)</strong>. Bu kavramları anlamak CSS'te layout oluşturmanın temelidir.
+                </p>
+            </div>
+
+            <!-- BOX MODEL DİYAGRAMI -->
+            <div class="box-model-diagram">
+                <h3 style="margin-bottom: 30px; color: #2d3748;">Box Model Görselleştirmesi</h3>
+                <div class="box-model-visual">
+                    <div class="box-model-border">
+                        <div class="box-model-padding">
+                            <div class="box-model-content">
+                                CONTENT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; color: #555;">Dıştan içe: Margin → Border → Padding → Content</p>
+            </div>
+
+            <!-- MARGIN -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Margin (Dış Boşluk)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Margin Nedir?</h3>
+                    <p>Margin, bir elementin <strong>dışındaki boşluğu</strong> kontrol eder. Elementler arası mesafeyi
+                        ayarlamak için kullanılır. Margin şeffaftır ve arka plan rengi almaz.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">margin</span>: <span class="css-value">20px</span>; <span
+                            style="color: #a0aec0;">/* Tüm taraflara 20px */</span>
+                        <span class="css-property">margin</span>: <span class="css-value">10px 20px</span>; <span
+                            style="color: #a0aec0;">/* Üst-Alt 10px, Sağ-Sol 20px */</span>
+                        <span class="css-property">margin</span>: <span class="css-value">10px 20px 30px</span>; <span
+                            style="color: #a0aec0;">/* Üst 10px, Sağ-Sol 20px, Alt 30px */</span>
+                        <span class="css-property">margin</span>: <span class="css-value">10px 20px 30px 40px</span>;
+                        <span style="color: #a0aec0;">/* Üst, Sağ, Alt, Sol */</span>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Margin Örnekleri:</div>
+                        <div class="margin-demo-container">
+                            <div class="margin-example-1">margin: 20px;</div>
+                            <div class="margin-example-2">margin: 10px 30px;</div>
+                            <div class="margin-example-3">margin: 5px 15px 25px 40px;</div>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <span style="color: #a0aec0;">/* Tek yönlü margin */</span>
+                        <span class="css-property">margin-top</span>: <span class="css-value">20px</span>;
+                        <span class="css-property">margin-right</span>: <span class="css-value">15px</span>;
+                        <span class="css-property">margin-bottom</span>: <span class="css-value">25px</span>;
+                        <span class="css-property">margin-left</span>: <span class="css-value">10px</span>;
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Bir elementi yatayda ortalamak için <code>margin: 0 auto;</code>
+                        kullanabilirsiniz (elementin width değeri tanımlı olmalı).
+                    </div>
+
+                    <div class="note">
+                        <strong>⚠️ Margin Collapse:</strong> Dikey olarak yan yana gelen iki elementin margin değerleri
+                        birleşir (collapse). Büyük olan margin değeri geçerli olur.
+                    </div>
+                </div>
+            </div>
+
+            <!-- PADDING -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Padding (İç Boşluk)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Padding Nedir?</h3>
+                    <p>Padding, bir elementin <strong>içeriği ile kenarlığı arasındaki boşluğu</strong> kontrol eder.
+                        Padding, elementin arka plan rengini alır.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">padding</span>: <span class="css-value">20px</span>; <span
+                            style="color: #a0aec0;">/* Tüm taraflara 20px */</span>
+                        <span class="css-property">padding</span>: <span class="css-value">10px 20px</span>; <span
+                            style="color: #a0aec0;">/* Üst-Alt 10px, Sağ-Sol 20px */</span>
+                        <span class="css-property">padding</span>: <span class="css-value">10px 20px 30px</span>; <span
+                            style="color: #a0aec0;">/* Üst 10px, Sağ-Sol 20px, Alt 30px */</span>
+                        <span class="css-property">padding</span>: <span class="css-value">10px 20px 30px 40px</span>;
+                        <span style="color: #a0aec0;">/* Üst, Sağ, Alt, Sol */</span>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Padding Örnekleri:</div>
+                        <div class="padding-example-1">padding: 5px; (Az iç boşluk)</div>
+                        <div class="padding-example-2">padding: 20px; (Orta iç boşluk)</div>
+                        <div class="padding-example-3">padding: 30px; (Fazla iç boşluk)</div>
+                    </div>
+
+                    <div class="code-block">
+                        <span style="color: #a0aec0;">/* Tek yönlü padding */</span>
+                        <span class="css-property">padding-top</span>: <span class="css-value">20px</span>;
+                        <span class="css-property">padding-right</span>: <span class="css-value">15px</span>;
+                        <span class="css-property">padding-bottom</span>: <span class="css-value">25px</span>;
+                        <span class="css-property">padding-left</span>: <span class="css-value">10px</span>;
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> Butonlar, kartlar ve içerik alanları için padding kullanarak içeriğe
+                        "nefes aldırın". Bu, tasarımı daha okunaklı hale getirir.
+                    </div>
+                </div>
+            </div>
+
+            <!-- BORDER -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Border (Kenarlık)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Border Nedir?</h3>
+                    <p>Border, elementin <strong>kenarlarına çizilen çizgidir</strong>. Kalınlık, stil ve renk
+                        özellikleri vardır.</p>
+
+                    <div class="code-block">
+                        <span style="color: #a0aec0;">/* Kısa yol (shorthand) */</span>
+                        <span class="css-property">border</span>: <span class="css-value">2px solid red</span>;
+                        <span style="color: #a0aec0;">/* Kalınlık | Stil | Renk */</span>
+
+                        <span style="color: #a0aec0;">/* Ayrı ayrı belirtme */</span>
+                        <span class="css-property">border-width</span>: <span class="css-value">2px</span>;
+                        <span class="css-property">border-style</span>: <span class="css-value">solid</span>;
+                        <span class="css-property">border-color</span>: <span class="css-value">red</span>;
+                    </div>
+
+                    <h4 style="color: #667eea; margin: 20px 0 10px 0;">Border Stilleri:</h4>
+                    <div class="visual-demo">
+                        <div class="border-example-1">solid - Düz çizgi</div>
+                        <div class="border-example-2">dashed - Kesikli çizgi</div>
+                        <div class="border-example-3">dotted - Noktalı çizgi</div>
+                        <div class="border-example-4">double - Çift çizgi</div>
+                        <div class="border-example-5">Farklı kenarlara farklı stiller</div>
+                    </div>
+
+                    <div class="code-block">
+                        <span style="color: #a0aec0;">/* Tek yönlü border */</span>
+                        <span class="css-property">border-top</span>: <span class="css-value">3px solid blue</span>;
+                        <span class="css-property">border-right</span>: <span class="css-value">2px dashed green</span>;
+                        <span class="css-property">border-bottom</span>: <span class="css-value">4px dotted red</span>;
+                        <span class="css-property">border-left</span>: <span class="css-value">5px double purple</span>;
+
+                        <span style="color: #a0aec0;">/* Yuvarlatılmış köşeler */</span>
+                        <span class="css-property">border-radius</span>: <span class="css-value">10px</span>;
+                    </div>
+
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Border Stil</th>
+                            <th>Açıklama</th>
+                        </tr>
+                        <tr>
+                            <td><strong>solid</strong></td>
+                            <td>Düz, kesintisiz çizgi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>dashed</strong></td>
+                            <td>Kesikli çizgi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>dotted</strong></td>
+                            <td>Noktalı çizgi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>double</strong></td>
+                            <td>Çift çizgi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>groove</strong></td>
+                            <td>3D oluklu görünüm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ridge</strong></td>
+                            <td>3D kabartma görünüm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>inset</strong></td>
+                            <td>3D içe gömülü görünüm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>outset</strong></td>
+                            <td>3D dışa çıkık görünüm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>none</strong></td>
+                            <td>Kenarlık yok</td>
+                        </tr>
+                    </table>
+
+                    <div class="tip">
+                        <strong>💡 İpucu:</strong> <code>border-radius</code> özelliği ile köşeleri yuvarlatarak modern
+                        ve şık tasarımlar oluşturabilirsiniz.
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Content (İçerik)</h2>
+                </div>
+
+                <div class="property-card">
+                    <h3>Content (İçerik Alanı)</h3>
+                    <p>Content, elementin gerçek içeriğinin (metin, resim vb.) bulunduğu alandır. Width ve height
+                        özellikleri ile kontrol edilir.</p>
+
+                    <div class="code-block">
+                        <span class="css-property">width</span>: <span class="css-value">300px</span>; <span
+                            style="color: #a0aec0;">/* Genişlik */</span>
+                        <span class="css-property">height</span>: <span class="css-value">200px</span>; <span
+                            style="color: #a0aec0;">/* Yükseklik */</span>
+
+                        <span class="css-property">max-width</span>: <span class="css-value">500px</span>; <span
+                            style="color: #a0aec0;">/* Maksimum genişlik */</span>
+                        <span class="css-property">min-width</span>: <span class="css-value">200px</span>; <span
+                            style="color: #a0aec0;">/* Minimum genişlik */</span>
+
+                        <span class="css-property">max-height</span>: <span class="css-value">400px</span>; <span
+                            style="color: #a0aec0;">/* Maksimum yükseklik */</span>
+                        <span class="css-property">min-height</span>: <span class="css-value">100px</span>; <span
+                            style="color: #a0aec0;">/* Minimum yükseklik */</span>
+                    </div>
+
+                    <div class="visual-demo">
+                        <div class="demo-title">Content Örnekleri:</div>
+                        <div class="content-example-1">
+                            200px x 100px<br>Content Alanı
+                        </div>
+                        <div class="content-example-2">
+                            300px x 150px Content Alanı<br>
+                            Padding ve border bu alana eklenir
+                        </div>
+                    </div>
+
+                    <div class="note">
+                        <strong>⚠️ Box-Sizing:</strong> Varsayılan olarak, width ve height değerleri sadece content
+                        alanını belirtir. <code>box-sizing: border-box;</code> kullanarak padding ve border'ı da bu
+                        boyuta dahil edebilirsiniz.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>CSS Temel Özellikler Rehberi &copy; PMTAL</p>
+        </footer>
+    </div>
+</body>
+
+</html>
