@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yeter</title>
+
+    <style>
+        h1 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.425);
+            margin: 5px;
+            font-size: 40px;
+        }
+        header {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+            background: linear-gradient(to right bottom, #2C3E50, #539DA7);
+            padding: 100px;
+            text-align: center;
+            justify-items: center;
+            justify-content: center;
+            color: white;
+            border-bottom: 5px solid #E97D1F;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        button {
+            background-color: #E97D1F;
+            color: white;
+            font-size: 18px;
+            padding: 6px;
+            border-radius: 18px;
+            box-shadow: 0px 0px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0);
+        }
+        
+        h2 {
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        nav {
+            
+            background-color: #2B3E4F;
+            color: white;
+            padding: 20px;
+            padding-left: 60px;
+            padding-right: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            justify-content: space-between;
+            align-items: center;
+            display:flex;
+        }
+        nav h2 {
+            color: #E97D1F;
+            text-align: left;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding-left: 5px;
+            padding-right: 20px;
+            float: left;
+            
+        }
+
+        section {
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table {
+            border: 1px solid rgb(184, 184, 184);
+            border-radius: 3px;
+            width: 50%;
+            padding: 8px;
+            justify-self: center;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        tr {
+            border: 1px solid ;
+        }
+
+        article {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(243, 243, 243);
+            padding: 40px;
+        }
+        .flexxerbox {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-bottom: 30px;
+        }
+        .simplebox {
+            padding: 8px;
+            flex: 1 1 400px;
+            font-size: 18px;
+            border: 1px solid rgb(184, 184, 184);
+            border-radius: 12px;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.445);
+        }
+        .orangebox {
+            padding: 8px;
+            flex: 1 1 400px;
+            font-size: 18px;
+            border: 3px dashed #E97D1F;
+            border-radius: 12px;
+            background-color: #FFF8F0;
+            position: relative;
+        }
+        .pop {
+            padding: 6px;
+            background-color: #E85039;
+            border-radius: 18px;
+            position: absolute;
+            color: white;
+            top: -15px;
+            right: -30px;
+        }
+        article a {
+            text-decoration: none;
+            padding-top: 20px;
+            color: #E97D1F;
+            
+        }
+
+        footer {
+            background-color: #333333;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+    <script>
+        function roverGang() {
+            window.location.href = "#menu"
+        }
+    </script>
+</head>
+<body>
+    <header id="main">
+        <h1>Kodla. Derle. Kahve İç.</h1>
+        <p>sdfsdfsdfsdfsdfsfdsdffdsfdsdf</p>
+        <button onclick="roverGang()">Menüyü Gör</button>
+    </header>
+
+    <h2>-- Fiyat Listesi --</h2>
+    <nav>
+        <div>
+            <h2><b>&lt;CodeCoffee/&gt;</b></h2>
+        </div>
+        <div>
+            <div>
+                <a href="#main">Anasayfa</a>
+                <a href="#menu">Menü</a>
+                <a href="#blog">Blog</a>
+                <a href="#cont">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="menu">
+        <table>
+            <tr>
+                <th>JavaScript Espresso</th>
+                <th>₺35</th>
+            </tr>
+            <tr>
+                <th>Python Latte</th>
+                <th>₺55</th>
+            </tr>
+            <tr>
+                <th>CSS Cappuccino (Bol Köpüklü)</th>
+                <th>$50</th>
+            </tr>
+            <tr">
+                <th>HTML Hot Chocolate</th>
+                <th>₺40</th>
+            </tr>
+        </table>
+    </section>
+
+    <article id="blog">
+        <h2>-- Güncel Blog --</h2>
+        <div class="flexxerbox">
+            <div class="simplebox">
+                <h3>CSS Box Model</h3>
+                <p><b><span style="color: #E97D1F; font-size: 40px;">K</span></b>utu modeli, her HTML
+                elemanının etrafını saran bir kutu gibi davranmasıdır. Margin, padding be content bu yapıyı oluşturur</p>
+                <a href="">Devamını Oku →</a>
+            </div>
+            <div class="orangebox">
+                <span class="pop"><b>Popüler</b></span>
+                <h3>Flexbox Düzeni</h3>
+                <p>Elenmanları yatay veya dikey olarak hizalamak hiç bu kadar olmamıştı. 'display:flex' ile hayat kurtarın.</p>
+                <a href="">Devamını Oku →</a>
+            </div>
+            <div class="simplebox">
+                <h3>CSS Grid</h3>
+                <p>İki boyutlu (satır ve sütun) düzenler oluşturmak için en güçlü araçtır. Responsive tasarımlar için birebirdir.</p>
+                <a href="">Devamını Oku →</a>
+            </div>
+        </div>
+    </article>
+
+    <footer id="cont">
+        <p>© 2023 Developer Coffee Shop. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
